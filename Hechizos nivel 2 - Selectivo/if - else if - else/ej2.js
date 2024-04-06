@@ -9,12 +9,37 @@ const leer = require("prompt-sync")();
  * Ravenclaw - a partir de 50 puntos
  * Slytherin - menos de 50 puntos
  * 
- * Por ejemplo si el estudiante saco 100 puntos entonces pertenece a Gryffindor o si sacara 30 entonces pertenece a Slytherin
+ * Por ejemplo si el estudiante saco 100 puntos entonces pertenece a Gryffindor o 
+ * si sacara 30 entonces pertenece a Slytherin
  */
 
 
 function main() {
-    
+    let puntuacion_examen = 0;
+
+    console.log("muy buena alumnado, hoy determinaremos su asignacion a alguna de las casa de Hogwart");
+    console.log("dependiendo de su puntuacion del examen se le asignara un casas u otra");
+    console.log("por favor diga su puntuacion del examnes");
+    puntuacion_examen = Number(leer());
+
+    if (puntuacion_examen < 50) {
+        console.log("se le asignara la casa de SLYTHERIN exitos");
+
+
+    } else if ((puntuacion_examen >= 50) && (puntuacion_examen < 70)) {
+        console.log("se le asigna la casa de RAVENCLAW exitos");
+
+    } else if ((puntuacion_examen >= 70) && (puntuacion_examen < 90)) {
+        console.log("se el asignara la casa de HUFFLEPUFF exitos");
+
+    } else {
+        console.log("se le asigna la casa de Gryffindor exitos");
+    }
+
+
+
+
+
 }
 
 
