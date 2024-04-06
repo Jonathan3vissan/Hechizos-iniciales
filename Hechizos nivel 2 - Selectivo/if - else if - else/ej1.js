@@ -14,13 +14,13 @@ function main() {
     
     let edad_cliente=0;
     
-    console.log("buenas ,usted quiere comprar una varita, pero primero debemos saber su edad?");
+    console.log("buenas ,usted desea comprar una varita, pero primero debemos saber su edad?");
     edad_cliente= Number (leer());
     if (edad_cliente<11) {
        
         console.log("no tiene edad suficiente para tener su varita, vuelva cuando tenga 11 años");
     }else{
-        console.log("muy bien tiene edad suficiente para poder compar su varita");
+        console.log("muy bien tiene edad suficiente para poder comprar su varita");
     }
 }
 
