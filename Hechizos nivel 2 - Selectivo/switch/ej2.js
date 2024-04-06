@@ -12,7 +12,26 @@ const leer = require("prompt-sync")();
 
 
 function main() {
-    
+    let nombre_nucleo = "def"
+
+    console.log("Por favor dame el nucleo de tu varita para determinar ");
+
+    nombre_nucleo = leer();
+
+    if (nombre_nucleo == "Fenix") {
+        console.log("excelente eleccion! las varitas con nucleo de Fenix son poderosas y leales");
+
+    } else if (nombre_nucleo == "Unicornio") {
+
+        console.log("las varitas con nucleo de unicornnio son conocidas por su pureza y foerza");
+    } else if (nombre_nucleo == "Dragon") {
+
+        console.log("¡CUIDADO! las varitas con nucleo de dragon son poderosas pero pueden ser temperamentales");
+    } else {
+        console.log("No reconocemos este tipo de nulceo . por favor,  ingrese un nucleo vaklido");
+    }
+
+
 }
 
 
