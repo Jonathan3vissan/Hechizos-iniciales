@@ -59,18 +59,7 @@ function main() {
    }
 
    if (sanguijuelas_reventadas == 3) {
-
-
-      console.log("bien ahora vamos empezar a preparar la pocion ");
-      console.log("ahora agitamos la mezcla en el caldero durante 30 segundo");
-
-   } else {
-
-
-   }
-
-   if (sanguijuelas_reventadas == 3) {
-
+        console.log("bien ahora sigamos con la preparacion");
       for (let j = 0; j < 3; j++) {
 
          console.log("que cantidad de pulverizado de cuerno de bicornio? ");
@@ -91,7 +80,7 @@ function main() {
    if ((sanguijuelas_reventadas == 3) && (pulverizado_cuerno_bicornio == 5)) {
 
 
-      console.log("muy bienn, ahora greagamos al caldero pulverizado de cuerno de bicorino y lo revolvemos con cuchara de palo");
+      console.log("muy bienn, ahora agregamos al caldero pulverizado de cuerno de bicorino y lo revolvemos con cuchara de palo");
 
       for (let k = 0; k < 3; k++) {
          console.log("ahora que cantidad de de pelo de gato negro?");
@@ -107,7 +96,7 @@ function main() {
 
       }
 
-   } else {
+   } else { 
 
    }
    if ((sanguijuelas_reventadas == 3) && (pulverizado_cuerno_bicornio == 5) && (pelo_gato_negro == 1)) {
@@ -124,7 +113,7 @@ function main() {
             console.log("muy bien, completaste con exito la pocion ");
             l = 3;
 
-         }
+         }console.log("perdiste");
 
       }
 
