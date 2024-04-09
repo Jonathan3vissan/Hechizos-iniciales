@@ -46,7 +46,7 @@ function main() {
       console.log("cantidad exacta de sanguijuelas reventadas");
       sanguijuelas_reventadas = leer();
       if (sanguijuelas_reventadas != 3) {
-         console.log("cantiodad incorrecta");
+         console.log("cantidad incorrecta");
          console.log("intento N:", i + 1);
 
       } else {
@@ -113,7 +113,7 @@ function main() {
             console.log("muy bien, completaste con exito la pocion ");
             l = 3;
 
-         }console.log("perdiste");
+         }
 
       }
 
