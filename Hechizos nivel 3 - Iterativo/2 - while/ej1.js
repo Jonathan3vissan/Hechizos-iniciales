@@ -56,7 +56,7 @@ function main() {
         if ((hechizo == secreto) && ((Voldemort > -1))) {
             console.log("le diste a voldemort");
             Voldemort = Voldemort - ATAQUE_MAGO
-            console.log("vida restante del voldemort:", Voldemort);
+            console.log("vida restante  del voldemort:", Voldemort);
 
 
         } else if ((hechizo != secreto) && (mago >= 0)) {
