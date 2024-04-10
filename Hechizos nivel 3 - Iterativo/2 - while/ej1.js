@@ -28,37 +28,42 @@ const ATAQUE_VOLDER = 3;
 function main() {
     let Voldemort = 9;
     let mago = 7;
-    let hechizo = 0;
+    let eleccion_numero = 0;
     let minimo = 0;
     let maxii = 6;
-
-
-    for (let i = 0; i < 6; i++) {
+    let contador=0;
+     
+    while (contador<10) {
+       
+        contador=contador+1;
+        console.log(contador);
         secreto = Math.round(Math.random() * (minimo - maxii) + maxii)
+           console.log("La tu hechizo (elige un numero del 0 a 5)"); 
+           
+           eleccion_numero=Number(leer());
+
+           if (eleccion_numero==secreto) {
+           
+            console.log("Muy bien lo golpeaste");
+            Voldemort=Voldemort-ATAQUE_MAGO
+            console.log("vida de Voldemort",Voldemort);
+            
+           }else{
+            console.log("esquivo tu ataque y te contrataco");
+            mago=mago-ATAQUE_VOLDER
+            console.log("vida del mago",mago);
+           }
+           if (Voldemort<=-1) {
+            console.log("GANASTE, venciste a lord voldermort");
+            contador=10;
+           }else if (mago<=0) {
+            console.log("PERDISTE la batalla contra voldemort");
+            contador=10;
+           }
+       
+        
 
         
-        if ((Voldemort < 0) || (mago <= 0)) {
-            console.log("fin");
-            i = 6;
-        } else {
-            console.log("elige tu ataque(con numeros enteros del 0 al 5");
-            hechizo = Number(leer());
-
-        }
-        if ((hechizo == secreto) && ((Voldemort > -1))) {
-            console.log(" le diste a voldemort");
-            Voldemort = Voldemort - ATAQUE_MAGO
-            console.log("vida restante  del voldemort:", Voldemort);
-
-
-        } else if ((hechizo != secreto) && (mago >= 0)) {
-            console.log("logro esquivar el ataque y te golpeo el con su contrataque");
-            mago = mago - ATAQUE_VOLDER
-            console.log("vida del magoo:", mago);
-        } else if ((mago <= 0) || (Voldemort <= -1)) {
-
-        }
-
     }
 
 }
