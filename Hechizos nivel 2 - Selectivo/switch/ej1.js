@@ -25,7 +25,7 @@ function main() {
         console.log("esta pocion es compleja pero util en la red de transportacion");
     } else if (nombre_pocion == "Pocion Multijugos") {
 
-        console.log("esta pocion es complivada pero muy util para la transformaciones temporales");
+        console.log("esta pocion es complicada pero muy util para la transformaciones temporales");
     } else {
         console.log("no tenemos informacion sobre esta pocion en nuestro registros");
     }

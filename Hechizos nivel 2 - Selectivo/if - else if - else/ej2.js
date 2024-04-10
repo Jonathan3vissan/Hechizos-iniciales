@@ -17,8 +17,8 @@ const leer = require("prompt-sync")();
 function main() {
     let puntuacion_examen = 0;
 
-    console.log("muy buena alumnado, hoy determinaremos su asignacion a alguna de las casa de Hogwart");
-    console.log("dependiendo de su puntuacion del examen se le asignara un casas u otra");
+    console.log("muy buena alumnado, hoy determinaremos su asignacion a alguna de las casas de Hogwart");
+    console.log("dependiendo de su puntuacion del examen se le asignara un casa u otra");
     console.log("por favor ingrese su puntuacion del examnes");
     puntuacion_examen = Number(leer());
 
@@ -30,7 +30,7 @@ function main() {
         console.log("se le asigna la casa de RAVENCLAW exitos");
 
     } else if ((puntuacion_examen >= 70) && (puntuacion_examen < 90)) {
-        console.log("se el asigna la casa de HUFFLEPUFF exitos");
+        console.log("se le asigna la casa de HUFFLEPUFF exitos");
 
     } else {
         console.log("se le asigna la casa de Gryffindor exitos");

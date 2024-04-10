@@ -21,7 +21,7 @@ function main() {
         console.log("tenes permiso, si o no");
         permiso = leer();
         if (permiso == "si") {
-            console.log("podes visitar Hogneades, disfrutalo");
+            console.log("podes visitar Hogmeades, disfrutalo");
         } else if (permiso != "si") {
             console.log("no pode visitar Hogmeades");
         }

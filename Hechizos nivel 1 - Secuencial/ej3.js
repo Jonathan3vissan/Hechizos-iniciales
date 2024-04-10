@@ -18,7 +18,7 @@ function main() {
 
     console.log("Harry cuanto es  el peso base de la  Nimbus 2000  ? ");
     peso_nimbus2000 = Number(leer());
-    console.log("cuatas plumas usaro en la fabricacion de la Nimbus 2000");
+    console.log("cuantas plumas usaron en la fabricacion de la Nimbus 2000");
     cantidad_plumas = Number(leer());
     peso_total = peso_nimbus2000 + cantidad_plumas * 0.1
     console.log("el peso neto de la Nimbus 2000 es de :", peso_total, "kg");

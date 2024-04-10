@@ -19,10 +19,10 @@ function main() {
 
     console.log("que edad tiene el mago");
     edad_mago=Number(leer());
-    console.log("cuantos dia de practica tienes del hechizo patronus");
+    console.log("cuantos dias de practica tienes del hechizo patronus");
     dias_de_practicas=Number(leer());
     potencia= (edad_mago*2+dias_de_practicas/2)
-    console.log("la potenica de tu hechizo patronus es de :",potencia, "krags");
+    console.log("la potencia de tu hechizo patronus es de :",potencia, "krags");
     
 }
 

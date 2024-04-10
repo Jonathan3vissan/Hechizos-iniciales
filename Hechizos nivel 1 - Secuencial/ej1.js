@@ -16,12 +16,12 @@ function main() {
     let raices_mandragora = 0;
 
 
-    console.log("cantidad necesaria de escarabajos ojos de tigre para la poscion");
+    console.log("cantidad necesaria de Escarabajos ojos de tigre para la poscion");
     escarabajos_ojos_tigre = Number(leer());
-    console.log("cantida necesaria de raices de mandragona necesarira para pocion");
+    console.log("cantida necesaria de raices de Mandragona necesarira para pocion");
     raices_mandragora = Number(leer());
 
-    console.log("cantiad total de ingredientes:", (escarabajos_ojos_tigre + raices_mandragora));
+    console.log("cantidad total de ingredientes:", (escarabajos_ojos_tigre + raices_mandragora));
 
 }
 

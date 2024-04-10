@@ -18,7 +18,7 @@ function main() {
     let libroo = 0;
     let no_trajo_varitas = 0;
 
-    console.log("hoy clase de encatamiento");
+    console.log("hoy clase de encantamientos");
     console.log("cuantos estudiantes hay en la clase");
     estudiante = Number(leer());
     console.log(" cuantos no trajeron varitas");

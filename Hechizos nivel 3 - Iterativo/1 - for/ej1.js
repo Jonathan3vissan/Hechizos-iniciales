@@ -14,11 +14,11 @@ const leer = require("prompt-sync")();
  * Extra: permitir que el programa acepte 3 hechizos diferentes
  */
 
+const HECHIZO_UNO = "Abrada Kedabra";
+const HECHIZO_DOS = "Cruxio";
+const HECHIZO_TRES = "Imperio";
 
 function main() {
-    const HECHIZO_UNO = "Abrada Kedabra";
-    const HECHIZO_DOS = "Cruxio";
-    const HECHIZO_TRES = "Imperio";
     let hechizo = "def";
 
     console.log("clase de encantamiento, hoy lazamientos de hechizos");

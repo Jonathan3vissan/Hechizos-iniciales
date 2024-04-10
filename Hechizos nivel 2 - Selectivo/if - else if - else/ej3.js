@@ -20,7 +20,7 @@ function main() {
     nombre_planta = leer();
 
     if ((nombre_planta == "Mandragora") || (nombre_planta == "Valeriana")) {
-        console.log("estas plantas son aptas, para realizar el examen");
+        console.log("estas plantas son aptas para realizar el examen");
 
     } else if ((nombre_planta == "Bubotuber") || (nombre_planta == "Whomping Willow")) {
         console.log("cuidado estas plantas son peligrosas, no podras realizar el examen");

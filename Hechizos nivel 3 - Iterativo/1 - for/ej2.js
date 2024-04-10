@@ -18,43 +18,35 @@ const leer = require("prompt-sync")();
  * Turnos totales: 5 
  */
 
-
+const ATAQUE_MAGO = 267;
+const DAÑO_TURNO_PERDIDO_A_MAGO = 75;
+const PATRONUS = "Patronus";
 function main() {
-    const ATAQUE_MAGO = 267;
-    const DAÑO_TURNO_PERDIDO_A_MAGO = 75;
-    const PATRONUS = "Patronus";
     let vida_estudiante = 350;
     let vida_dementor = 1000;
     let hechizo = "defoul";
-    console.log("inicamos la batalla");
+    console.log("iniciamos la batalla");
 
     for (let i = 5; i > 0; i--) {
 
         if ((vida_dementor <= 0) || (vida_estudiante <= 0)) {
             i = 0
         } else {
-            console.log(" lanza hechizo");
+            console.log(" lanza tu hechizo");
             hechizo = leer();
-
-
         }
         if ((PATRONUS == hechizo) && (vida_dementor > 0)) {
             console.log("acertaste tu ataque");
             vida_dementor = vida_dementor - ATAQUE_MAGO
-            console.log("vida del demontor:", vida_dementor);
+            console.log("vida del dementor:", vida_dementor);
 
         } else if ((hechizo != PATRONUS) && (vida_estudiante > 0)) {
             console.log("erraste tu ataque");
             vida_estudiante = vida_estudiante - DAÑO_TURNO_PERDIDO_A_MAGO
             console.log("vida del estudiante:", vida_estudiante);
+        }else if ((vida_dementor <= 0) || (vida_estudiante <= 0)) {
+            
         }
-
-
-
-
-
-
-
 
     }
 }
