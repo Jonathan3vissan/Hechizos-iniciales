@@ -31,7 +31,7 @@ function main() {
     let eleccion_numero = VALOR_NUM_DEF;
     let minimo = VALOR_NUM_DEF;
     let maxii = 6;
-    let contador = 0;
+    let contador = VALOR_NUM_DEF;
 
     while (contador < 10) {
 

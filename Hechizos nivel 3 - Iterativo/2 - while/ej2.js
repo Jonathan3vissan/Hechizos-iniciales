@@ -33,12 +33,12 @@ las fuerzas oscuras? ¡Adelante, el destino del bosque dependen de vos!
 const ATAQUE_DEMEMTORES=2;
 const ATAQUE_MAGO=1;
 const ATAQUE_ALIADO=1;
+const VALOR_NUM_DEF=0;
 
 function main() {
-let azar=0;
-let minimo=0;
+let azar=VALOR_NUM_DEF;
+let minimo=VALOR_NUM_DEF;
 let maximo=4;
-let vida_dementores=10;
 let vida_mago=5;
 let amigo_misterioso_vida=5;
 
