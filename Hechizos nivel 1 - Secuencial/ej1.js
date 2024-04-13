@@ -9,11 +9,11 @@ const leer = require("prompt-sync")();
  * Por ejemplo si es necesario 8 raíces de mandrágora y 5 escarabajos de ojo de tigre para hacer la
  *  poción entonces el total de ingredientes es 13
  */
-
+const VALOR_NUM_DEF = 0;
 
 function main() {
-    let escarabajos_ojos_tigre = 0;
-    let raices_mandragora = 0;
+    let escarabajos_ojos_tigre = VALOR_NUM_DEF;
+    let raices_mandragora = VALOR_NUM_DEF;
 
 
     console.log("cantidad necesaria de Escarabajos ojos de tigre para la poscion");

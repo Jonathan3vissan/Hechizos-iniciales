@@ -11,10 +11,10 @@ const leer = require("prompt-sync")();
  * Por ejemplo si el estudiante quiere traer un Whomping Willow no podra hacer el examen,
  *  en otro caso si trae una Valeriana se le otorgara el permiso
  */
-
+const VALOR_DEF_STRING = "DEF";
 
 function main() {
-    let nombre_planta = "def"
+    let nombre_planta = VALOR_DEF_STRING;
 
     console.log("digame el nombre de la planta que encontro alumno");
     nombre_planta = leer();

@@ -12,10 +12,10 @@ const leer = require("prompt-sync")();
  * Cualquier otro tipo de pocion indicar que: No tenemos información sobre esa poción en nuestros registros.
  * 
  */
-
+const VALOR_DEF_STRING = "DEF";
 
 function main() {
-    let nombre_pocion = "def";
+    let nombre_pocion = VALOR_DEF_STRING;
 
     console.log("dime cual es el nombre de la pocion");
     nombre_pocion = leer();

@@ -28,21 +28,21 @@ const leer = require("prompt-sync")();
     Deja que la poción repose durante 5 minutos antes de su uso.
  * 
  */
-
+const VALOR_NUM_DEF = 0;
 function main() {
 
-   let sanguijuelas_reventadas = 0;
-   let pulverizado_cuerno_bicornio = 0;
-   let pelo_gato_negro = 0;
-   let cola_serpiente = 0;
-   let sentido_de_giro = "def";
+   let sanguijuelas_reventadas = VALOR_NUM_DEF;
+   let pulverizado_cuerno_bicornio = VALOR_NUM_DEF;
+   let pelo_gato_negro = VALOR_NUM_DEF;
+   let cola_serpiente = VALOR_NUM_DEF;
+
 
    console.log("Hoy prepararemos la pocion Multijugos");
    console.log("comenzemos por los ingrediente , solo le dare 3 intentos para decir la cantidad correcta de cada ingrediente");
    console.log("primer ingrediente: sanguijuelas reventadas, deben decirme la cantidad precisa tiene solo 3 intenos");
    console.log("recuerda que si no sabes la cantida exacta de algun igrediente no podras continuar dejando imcopleta esta tarea");
 
-   for (let i = 0; i < 3; i++) {
+   for (let i = VALOR_NUM_DEF; i < 3; i++) {
       console.log("cantidad exacta de sanguijuelas reventadas");
       sanguijuelas_reventadas = leer();
       if (sanguijuelas_reventadas != 3) {
@@ -59,8 +59,8 @@ function main() {
    }
 
    if (sanguijuelas_reventadas == 3) {
-        console.log("bien ahora sigamos con la preparacion");
-      for (let j = 0; j < 3; j++) {
+      console.log("bien ahora sigamos con la preparacion");
+      for (let j = VALOR_NUM_DEF; j < 3; j++) {
 
          console.log("que cantidad de pulverizado de cuerno de bicornio? ");
          pulverizado_cuerno_bicornio = leer();
@@ -82,7 +82,7 @@ function main() {
 
       console.log("muy bienn, ahora agregamos al caldero pulverizado de cuerno de bicorino y lo revolvemos con cuchara de palo");
 
-      for (let k = 0; k < 3; k++) {
+      for (let k = VALOR_NUM_DEF; k < 3; k++) {
          console.log("ahora que cantidad de de pelo de gato negro?");
          pelo_gato_negro = leer();
          if (pelo_gato_negro != 1) {
@@ -96,14 +96,14 @@ function main() {
 
       }
 
-   } else { 
+   } else {
 
    }
    if ((sanguijuelas_reventadas == 3) && (pulverizado_cuerno_bicornio == 5) && (pelo_gato_negro == 1)) {
 
       console.log("ahora el ultimo ingrediente");
 
-      for (let l = 0; l < 3; l++) {
+      for (let l = VALOR_NUM_DEF; l < 3; l++) {
          console.log("que cantidad de cola de serpiente?");
          cola_serpiente = leer();
          if (cola_serpiente != 2) {

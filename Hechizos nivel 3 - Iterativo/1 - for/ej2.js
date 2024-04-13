@@ -21,31 +21,33 @@ const leer = require("prompt-sync")();
 const ATAQUE_MAGO = 267;
 const DAÑO_TURNO_PERDIDO_A_MAGO = 75;
 const PATRONUS = "Patronus";
+const VALOR_DEF_STRING = "def";
+const VALOR_NUM_DEF = 0;
 function main() {
     let vida_estudiante = 350;
     let vida_dementor = 1000;
-    let hechizo = "defoul";
+    let hechizo = VALOR_DEF_STRING;
     console.log("iniciamos la batalla");
 
-    for (let i = 5; i > 0; i--) {
+    for (let i = 5; i > VALOR_NUM_DEF; i--) {
 
-        if ((vida_dementor <= 0) || (vida_estudiante <= 0)) {
-            i = 0
+        if ((vida_dementor <= VALOR_NUM_DEF) || (vida_estudiante <= VALOR_NUM_DEF)) {
+            i = VALOR_NUM_DEF;
         } else {
             console.log(" lanza tu hechizo");
             hechizo = leer();
         }
-        if ((PATRONUS == hechizo) && (vida_dementor > 0)) {
+        if ((PATRONUS == hechizo) && (vida_dementor > VALOR_NUM_DEF)) {
             console.log("acertaste tu ataque");
             vida_dementor = vida_dementor - ATAQUE_MAGO
             console.log("vida del dementor:", vida_dementor);
 
-        } else if ((hechizo != PATRONUS) && (vida_estudiante > 0)) {
+        } else if ((hechizo != PATRONUS) && (vida_estudiante > VALOR_NUM_DEF)) {
             console.log("erraste tu ataque");
             vida_estudiante = vida_estudiante - DAÑO_TURNO_PERDIDO_A_MAGO
             console.log("vida del estudiante:", vida_estudiante);
-        }else if ((vida_dementor <= 0) || (vida_estudiante <= 0)) {
-            
+        } else if ((vida_dementor <= VALOR_NUM_DEF) || (vida_estudiante <= VALOR_NUM_DEF)) {
+
         }
 
     }

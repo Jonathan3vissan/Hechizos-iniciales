@@ -8,18 +8,17 @@ const leer = require("prompt-sync")();
  * 
  * Por ejemplo si el cliente tiene 14 años si puede comprar, en otro caso si tuviera 9 entonces no
  */
-
-
+const VALOR_NUM_DEF = 0;
 function main() {
-    
-    let edad_cliente=0;
-    
+
+    let edad_cliente = VALOR_NUM_DEF;
+
     console.log("buenas ,usted desea comprar una varita, pero primero debemos saber su edad?");
-    edad_cliente= Number (leer());
-    if (edad_cliente<11) {
-       
+    edad_cliente = Number(leer());
+    if (edad_cliente < 11) {
+
         console.log("no tiene edad suficiente para tener su varita, vuelva cuando tenga 11 años");
-    }else{
+    } else {
         console.log("muy bien tiene edad suficiente para poder comprar su varita");
     }
 }

@@ -10,13 +10,14 @@ const leer = require("prompt-sync")();
  * 
  * Por ejemplo si hay 7 varitas y 4 libros a usar los ingredientes necesarios son 29
  */
+const VALOR_NUM_DEF = 0;
 
 
 function main() {
-    let estudiante = 0;
-    let estudiante_actos = 0;
-    let libroo = 0;
-    let no_trajo_varitas = 0;
+    let estudiante = VALOR_NUM_DEF;
+    let estudiante_actos = VALOR_NUM_DEF;
+    let libroo = VALOR_NUM_DEF;
+    let no_trajo_varitas = VALOR_NUM_DEF;
 
     console.log("hoy clase de encantamientos");
     console.log("cuantos estudiantes hay en la clase");

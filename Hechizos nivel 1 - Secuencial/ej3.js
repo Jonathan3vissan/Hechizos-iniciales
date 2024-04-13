@@ -8,13 +8,13 @@ const leer = require("prompt-sync")();
  * 
  * Por ejemplo si la cantidad de plumas usadas son 350 y el peso base es de 1.5kg entonces el total es de 36.5kg
  */
-
+const VALOR_NUM_DEF = 0;
 
 function main() {
 
-    let cantidad_plumas = 0;
-    let peso_nimbus2000 = 0;
-    let peso_total = 0;
+    let cantidad_plumas = VALOR_NUM_DEF;
+    let peso_nimbus2000 = VALOR_NUM_DEF;
+    let peso_total = VALOR_NUM_DEF;
 
     console.log("Harry cuanto es  el peso base de la  Nimbus 2000  ? ");
     peso_nimbus2000 = Number(leer());

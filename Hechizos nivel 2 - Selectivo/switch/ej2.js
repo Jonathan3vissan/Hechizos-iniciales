@@ -9,10 +9,10 @@ const leer = require("prompt-sync")();
  * Dragón - ¡Cuidado! Las varitas con núcleo de dragón son poderosas pero pueden ser temperamentales.
  * Cualquier otro tipo de nucleo - No reconocemos ese tipo de núcleo. Por favor, ingrese un núcleo válido.
  */
-
+const VALOR_DEF_STRING = "DEF";
 
 function main() {
-    let nombre_nucleo = "def"
+    let nombre_nucleo = VALOR_DEF_STRING;
 
     console.log("Por favor dame el nucleo de tu varita para determinar sus caracteristicas ");
 

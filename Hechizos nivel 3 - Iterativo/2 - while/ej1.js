@@ -23,47 +23,47 @@ Considerar que:
  */
 const ATAQUE_MAGO = 2;
 const ATAQUE_VOLDER = 3;
-
+const VALOR_NUM_DEF = 0;
 
 function main() {
     let Voldemort = 9;
     let mago = 7;
-    let eleccion_numero = 0;
-    let minimo = 0;
+    let eleccion_numero = VALOR_NUM_DEF;
+    let minimo = VALOR_NUM_DEF;
     let maxii = 6;
-    let contador=0;
-     
-    while (contador<10) {
-       
-        contador=contador+1;
+    let contador = 0;
+
+    while (contador < 10) {
+
+        contador = contador + 1;
         console.log(contador);
         secreto = Math.round(Math.random() * (minimo - maxii) + maxii)
-           console.log("La tu hechizo (elige un numero del 0 a 5)"); 
-           
-           eleccion_numero=Number(leer());
+        console.log("La tu hechizo (elige un numero del 0 a 5)");
 
-           if (eleccion_numero==secreto) {
-           
+        eleccion_numero = Number(leer());
+
+        if (eleccion_numero == secreto) {
+
             console.log("Muy bien lo golpeaste");
-            Voldemort=Voldemort-ATAQUE_MAGO
-            console.log("vida de Voldemort",Voldemort);
-            
-           }else{
-            console.log("esquivo tu ataque y te contrataco");
-            mago=mago-ATAQUE_VOLDER
-            console.log("vida del mago",mago);
-           }
-           if (Voldemort<=-1) {
-            console.log("GANASTE, venciste a lord voldermort");
-            contador=10;
-           }else if (mago<=0) {
-            console.log("PERDISTE la batalla contra voldemort");
-            contador=10;
-           }
-       
-        
+            Voldemort = Voldemort - ATAQUE_MAGO
+            console.log("vida de Voldemort", Voldemort);
 
-        
+        } else {
+            console.log("esquivo tu ataque y te contrataco");
+            mago = mago - ATAQUE_VOLDER
+            console.log("vida del mago", mago);
+        }
+        if (Voldemort <= -1) {
+            console.log("GANASTE, venciste a lord voldermort");
+            contador = 10;
+        } else if (mago <= VALOR_NUM_DEF) {
+            console.log("PERDISTE la batalla contra voldemort");
+            contador = 10;
+        }
+
+
+
+
     }
 
 }

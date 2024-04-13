@@ -11,8 +11,9 @@ const leer = require("prompt-sync")();
  */
 
 
+const VALOR_NUM_DEF = 0;
 function main() {
-    let edad_estudiante = 0;
+    let edad_estudiante = VALOR_NUM_DEF;
     let permiso = "def"
 
     console.log("por favor ingrese su edad ");

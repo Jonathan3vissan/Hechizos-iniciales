@@ -12,10 +12,10 @@ const leer = require("prompt-sync")();
  * Por ejemplo si el estudiante saco 100 puntos entonces pertenece a Gryffindor o 
  * si sacara 30 entonces pertenece a Slytherin
  */
-
+const VALOR_NUM_DEF = 0;
 
 function main() {
-    let puntuacion_examen = 0;
+    let puntuacion_examen = VALOR_NUM_DEF;
 
     console.log("muy buena alumnado, hoy determinaremos su asignacion a alguna de las casas de Hogwart");
     console.log("dependiendo de su puntuacion del examen se le asignara un casa u otra");

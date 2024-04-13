@@ -9,11 +9,11 @@ const leer = require("prompt-sync")();
  * Por ejemplo si la astucia es 90 y la lealtad es 40 entonces la varita es apta, en otro caso si la astucia es 30 y 
  * la lealtad es 60 la varita no es apta
  */
-
+const VALOR_NUM_DEF = 0;
 
 function main() {
-    let lealtad = 0;
-    let astucia = 0;
+    let lealtad = VALOR_NUM_DEF;
+    let astucia = VALOR_NUM_DEF;
 
     console.log("ingrese el nivel de lealtad de su varita magica por favor");
     lealtad = Number(leer());

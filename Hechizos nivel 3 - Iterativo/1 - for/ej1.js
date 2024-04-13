@@ -14,32 +14,33 @@ const leer = require("prompt-sync")();
  * Extra: permitir que el programa acepte 3 hechizos diferentes
  */
 
+const VALOR_DEF_STRING = "def";
 const HECHIZO_UNO = "Abrada Kedabra";
 const HECHIZO_DOS = "Cruxio";
 const HECHIZO_TRES = "Imperio";
-
+const VALOR_NUM_DEF = 0;
 function main() {
-    let hechizo = "def";
+    let hechizo = VALOR_DEF_STRING;
 
     console.log("clase de encantamiento, hoy lazamientos de hechizos");
     console.log("consigna del dia: deberan lanzar correctaente los hechizos ");
     console.log("solo tendran 3 intentos para lanzar correctamnete el hechizo");
     console.log("por favor lanza el hechizo de forma correcta");
 
-    for (let i = 3; i > 0; i--) {
+    for (let i = 3; i > VALOR_NUM_DEF; i--) {
 
         nombre_hechizo = leer();
 
         if (nombre_hechizo == HECHIZO_UNO) {
 
             console.log("Felicidades el hechizo", HECHIZO_UNO, "fue lanzado a la perfeccion");
-            i = 0;
+            i = VALOR_NUM_DEF;
         } else if (nombre_hechizo == HECHIZO_DOS) {
             console.log("muy buen lanzamiento del hechizo Crucio felicidades");
-            i = 0;
+            i = VALOR_NUM_DEF;
         } else if (nombre_hechizo == HECHIZO_TRES) {
             console.log("excelnte muy buen lanzamiento del hechizo Imperio!!!");
-            i = 0;
+            i = VALOR_NUM_DEF;
         } else {
             console.log("casi vuelve a intentar, te quedan solo", i - 1, "intentos");
         }
