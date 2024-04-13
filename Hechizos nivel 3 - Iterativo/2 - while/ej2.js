@@ -30,34 +30,96 @@ Recuerda, tanto tú como tu ser querido pueden recibir ataques de los Dementores
 ¿Estás listo para adentrarte en esta emocionante aventura y demostrar tu valentía contra 
 las fuerzas oscuras? ¡Adelante, el destino del bosque dependen de vos!
  */
-const ATAQUE_DEMEMTORES=2;
-const ATAQUE_MAGO=1;
-const ATAQUE_ALIADO=1;
+const VALOR_NUM_DEF = 0;
+const VALOR_MINIMO_AZAR = 0;
+const VALOR_MAXIMO_AZAR = 4;
+const ATAQUE_DEMEMTORES = 1.5;
+const VALOR_MINIMO_ATD = 14;
+const VALOR_MAXIMO_ATD = 17;
+
+
 
 function main() {
-let azar=0;
-let minimo=0;
-let maximo=4;
-let vida_dementores=10;
-let vida_mago=5;
-let amigo_misterioso_vida=5;
 
-    azar=Math.round (Math.random()*(minimo-maximo)+maximo)
-   console.log(azar);    
-
-
-
-    
+  let contador = VALOR_NUM_DEF;
+  let azar = VALOR_NUM_DEF;
+  let ayuda_de_mago = VALOR_NUM_DEF
+  let ataque_doble_dementores = VALOR_NUM_DEF
+  let recuerdos_mago = 5;
+  let recuerdos_ser_querido = 5;
+  let te_salvan = VALOR_NUM_DEF
+  let eleccion_defensiva = VALOR_NUM_DEF;
+  let condicon_por_ataque_doble = VALOR_NUM_DEF;
 
 
+  while (contador < 15) {
+
+    contador = contador + 1;
+    console.log("VUELTA\t", contador);
+    azar = Math.round(Math.random() * (VALOR_MINIMO_AZAR - VALOR_MAXIMO_AZAR) + VALOR_MAXIMO_AZAR)
+    console.log("VALOR ALEATORIO:\t", azar);
+    ayuda_de_mago = Math.round(Math.random() * (VALOR_MINIMO_AZAR - VALOR_MAXIMO_AZAR) + VALOR_MAXIMO_AZAR)
+    console.log("VALOR ALEATORIO AYUDA DE MAGO,\t", ayuda_de_mago);
+    ataque_doble_dementores = Math.round(Math.random() * (VALOR_MINIMO_ATD - VALOR_MAXIMO_ATD) + VALOR_MAXIMO_ATD)
+    console.log("VALOR ALEATORIO PARA ATaQUE DE DEMENTORE:\t", ataque_doble_dementores);
 
 
-    
+
+    if (((ayuda_de_mago == 1) || (ayuda_de_mago == 3)) && (contador > 4)) {
+      console.log("aparece un mago y aleja a los dementores salvando a harry y su ser querido");
+      contador = 15
+      te_salvan = 30;
 
 
+    } else if (ataque_doble_dementores == 15) {
 
-}
+      console.log("atacaron 2 dementores y lograron quitar recuerdos felices ambos");
+      recuerdos_mago = recuerdos_mago - ATAQUE_DEMEMTORES
+      recuerdos_ser_querido = recuerdos_ser_querido - ATAQUE_DEMEMTORES
+      console.log("tu salud es de:\t", recuerdos_mago);
+      console.log("vida de tu ser querido:\t", recuerdos_ser_querido);
+      condicon_por_ataque_doble = 45;
+
+    }
+    else {
+      console.log("preparate para lanzar patronus,(elije un numero entre 0 y 3) ");
+      eleccion_defensiva = Number(leer());
+
+    }
+
+    if ((azar == eleccion_defensiva) && (te_salvan != 30) && (condicon_por_ataque_doble != 45) && ((contador == 1) || (contador == 3)
+      || (contador == 5) || (contador == 7) || (contador == 9) || (contador == 11) || (contador == 13))) { //harry
+      console.log("BIEN, protejiste tus recuerdos felices ");
+
+    } else if ((azar != eleccion_defensiva) && (te_salvan != 30) && (condicon_por_ataque_doble != 45) && ((contador == 1) || (contador == 3) ||
+      (contador == 5) || (contador == 7) || (contador == 9) || (contador == 11) || (contador == 13) || (contador == 15))) { //harry
+      console.log("NO LOGRASTES DEFENDER TUS RECUERDOS FELICES");
+      recuerdos_mago = recuerdos_mago - ATAQUE_DEMEMTORES
+      console.log("tus recuerdos felices son :\t", recuerdos_mago);
+
+    } else if ((azar == eleccion_defensiva) && (te_salvan != 30) && (condicon_por_ataque_doble != 45) && ((contador == 2) || (contador == 4) ||
+      (contador == 6) || (contador == 8) || (contador == 10) || (contador == 12) || (contador == 14))) { //ser querido
+      console.log("BIEN defendistes a tu ser querido bien");
+
+    } else if ((azar != eleccion_defensiva) && (te_salvan != 30) && (condicon_por_ataque_doble != 45) && ((contador == 2) ||
+      (contador == 4) || (contador == 6) || (contador == 8) || (contador == 10) || (contador == 12) || (contador == 14))) { // ser quierdo
+
+      console.log("NO lograste denfender a tu ser querido ");
+      recuerdos_ser_querido = recuerdos_ser_querido - ATAQUE_DEMEMTORES
+      console.log("los recuerdo felices de ser querido son:\t", recuerdos_ser_querido);
 
 
+    } else {
 
-main();
+    }
+    if ((recuerdos_mago <= 0) || (recuerdos_ser_querido <= 0)) {
+      console.log("fin no quedan recuerdos felices");
+      contador = 15;
+
+    } else {
+
+    }
+  }
+} main();
+
+
