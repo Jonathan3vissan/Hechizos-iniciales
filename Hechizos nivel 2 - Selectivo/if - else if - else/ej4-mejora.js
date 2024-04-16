@@ -21,8 +21,13 @@ const leer = require("prompt-sync")();
         - Solicitar caracteristicas relevantes al cliente de tal forma que tanto la varita como el cliente tienen que ser compatibles
 - Solicitar al usuario la edad
     - Solo a partir de los 11 es permitido solicitar una varita para iniciar sus estudios
+    
+
     - En caso de que el cliente tenga más de 18 se le cobrara el 20% más y así se acumulara por cada 5 años de diferencia
-- Aceptar varita
+
+
+
+    - Aceptar varita
     - En caso de que no sean compatibles el usuario y la varita este podra
         - Aceptar la varita de todas formas
             - Esto generara una bonificacion negativa
@@ -63,7 +68,7 @@ function main() {
             console.log(typeof lealtad_varita, lealtad_varita);
             console.log(typeof astucia_varita, astucia_varita);
 
-        } else if ((lealtad_varita.trim() === "") || (astucia_varita.trim() === "")) {
+        } else if ((lealtad_varita =false) || (astucia_varita ==false)) {
             console.log("INGRESE SOLO NUMEROS");
             contador = VALOR_DEF_NUM;
             console.log("conntaodr en", contador);
