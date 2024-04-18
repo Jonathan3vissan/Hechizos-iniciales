@@ -73,7 +73,7 @@ function main() {
     let horocrux_codigo_final_2=VALOR_CODIGO_HORX_DEF_2;
     let azar_3_horocrux=VALOR_AZA_DEF_HOROCRUX;
     let horocrux_codigo_final_3=VALOR_CODIGO_HORX_DEF_3
-    
+    let azar_4_horocrux=0;
 
     azar_1_horocrux=Math.round(Math.random()*(VALOR_MINIMO_1-VALOR_MAXMIMO_1)+VALOR_MAXMIMO_1);
     console.log(azar_1_horocrux);

@@ -90,40 +90,40 @@ function main() {
     let precio_final = VALOR_DEF_PRECIO;
     let recargo_por_edad = VALOR_DEF_NUM;
 
-    /* console.log(astucia_varita);
-     console.log("ahora por favor ingresa  PRIMERO: el nivel de lealtad y SEGUNDO: luego el nivel de astucia ");
- 
-     while (contador < 3) {
-         contador = contador + 1
- 
-         console.log("lealtad:");
-         lealtad_varita = Number(leer());
-         console.log("astucia:");
-         astucia_varita = Number(leer());
- 
-         if ((lealtad_varita >= LEALTAD_MINIMA_VARITA) && (astucia_varita >= ASTUCIA_MINIMA_VARITA)) {
- 
-             console.log("Primer condicion cumplida");
-             contador = 3;
- 
-         }
-         else if (((lealtad_varita <= LEALTAD_MINIMA_VARITA) || (astucia_varita <= ASTUCIA_MINIMA_VARITA)) &&
-             ((lealtad_varita >= 10) && (astucia_varita >= 10))) {
-             contador = 3;
-             console.log("NO CUMPLE");
- 
-         } else if (((!lealtad_varita) || (!astucia_varita)) || ((lealtad_varita < 10) || (astucia_varita < 10))) {
-             console.log("por favor complete los dos campos, valor minimo aceptado 10 ,nos se permiten letras ni dejar en blanco el campo");
-             contador = VALOR_DEF_NUM;
- 
- 
-         } else {
- 
-         }//salida del primer bloque if                         condicion ingresar datos sin dejar espacio en blanco
- 
- 
-     }//salida del while  
- */
+    console.log(astucia_varita);
+    console.log("ahora por favor ingresa  PRIMERO: el nivel de lealtad y SEGUNDO: luego el nivel de astucia ");
+
+    while (contador < 3) {
+        contador = contador + 1
+
+        console.log("lealtad:");
+        lealtad_varita = Number(leer());
+        console.log("astucia:");
+        astucia_varita = Number(leer());
+
+        if ((lealtad_varita >= LEALTAD_MINIMA_VARITA) && (astucia_varita >= ASTUCIA_MINIMA_VARITA)) {
+
+            console.log("Primer condicion cumplida");
+            contador = 3;
+
+        }
+        else if (((lealtad_varita <= LEALTAD_MINIMA_VARITA) || (astucia_varita <= ASTUCIA_MINIMA_VARITA)) &&
+            ((lealtad_varita >= 10) && (astucia_varita >= 10))) {
+            contador = 3;
+            console.log("NO CUMPLE");
+
+        } else if (((!lealtad_varita) || (!astucia_varita)) || ((lealtad_varita < 10) || (astucia_varita < 10))) {
+            console.log("por favor complete los dos campos, valor minimo aceptado 10 ,nos se permiten letras ni dejar en blanco el campo");
+            contador = VALOR_DEF_NUM;
+
+
+        } else {
+
+        }//salida del primer bloque if                         condicion ingresar datos sin dejar espacio en blanco
+
+
+    }//salida del while  
+
 
     console.log("tenemos en esto momento solo estas varitas, (PONER VARITA ... Y SU NOOMBRE DE LA MISMA)");
     console.log("la primera es la ", VARITA_MAGICA_1);
@@ -141,7 +141,7 @@ function main() {
         if (eleccion_varita == VARITA_MAGICA_1) {
             console.log("buenas eleecion , eligio la", VARITA_MAGICA_1);
             contador = 3
-             precio_final = PRECIO_VARITA_1;
+            precio_final = PRECIO_VARITA_1;
 
 
         } else if (eleccion_varita == VARITA_MAGICA_2) {
@@ -161,7 +161,7 @@ function main() {
 
         } else {
             console.log("DEDBE PONER VARITA Y SEGUIDO DEL NOMBRE DE LA MISMA, NO PUEDE PONER NUMEROS NI OTRAS VARITAS NI DEJAR EN BLANCO LA RESPUESTA");
-            contador=VALOR_DEF_NUM;
+            contador = VALOR_DEF_NUM;
 
 
 
@@ -222,7 +222,7 @@ function main() {
     console.log("necesitaremos que llenes este fomulario eligiendo entre las opciones que estan en el(escribiendo la opcion elegida) ");
 
 
-
+contador=0
     while (contador < 3) {
 
         console.log(" eres hombre o mujer?(escribbiendo una 1 para HOMBRE y 2 para MUJER) ");
@@ -245,7 +245,7 @@ function main() {
             contador = VALOR_DEF_NUM;
 
 
-                                       // me falta las otra caracteristicas, incompleto
+            // me falta las otra caracteristicas, incompleto
         }
     }//find del bloque while            
 
@@ -258,8 +258,8 @@ function main() {
     edad_de_usuario = Number(leer());              //bloque de edad  y precio esta completo 
 
     if ((edad_de_usuario >= EDAD_MINIMA_DE_USUARIO) && (edad_de_usuario <= 18)) {
-        console.log("TIENE LA MINAMA EDAD NECESARIA");
-        console.log("PRECIO:\t",precio_final);
+        console.log("TIENE LA MINIMA EDAD NECESARIA");
+        console.log("PRECIO:\t", precio_final);
 
     } else if ((edad_de_usuario < 11)) {
         console.log("vuelve cuanto seas mayor de 11 años ");
