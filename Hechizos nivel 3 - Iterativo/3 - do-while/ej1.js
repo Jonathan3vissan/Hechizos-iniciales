@@ -14,7 +14,7 @@ const leer = require("prompt-sync")();
     1. Diadema de Rowena Ravenclaw es "?R4vena" z
         - donde ? es un caracter generado aleatoriamente entre a y e 
     1. Nagini (serpiente)          es "N@9ini?" 
-        - donde ? es un caracter generado aleatoriamente entre H y K 
+        - donde ? es un caracter generado aleatoriamente entre H y K z
 
 
 - Cada Horrocrux tiene un 5% de probabilidad de quitar la cordura y salud totalmente antes de cada intento, esta probabilidad aumenta un 2.4% por cada horrocrux destruido, despues de todo son objetos malditos que no cualquier mortal puede destruir facilmente
@@ -43,22 +43,28 @@ const HOROCRUX_4 = "Diadema de Rowena Ravenclaw";
 const HOROCRUX_5 = "Nagini";
 const CODIGO_HOROCRUX_1 = "R1dd13";
 const CODIGO_HOROCRUX_2 = "G4unt!";
-const CODIGO_HOROCRUX_3 = "H3l?ga!";
-const CODIGO_HOROCRUX_4 = "?R4vena";
-const CODIGO_HOROCRUX_5 = "N@9ini?";
+const CODIGO_HOROCRUX_3_A = "H3l";
+const CODIGO_HOROCRUX_3_B = "ga!";
+const CODIGO_HOROCRUX_4 = "R4vena";
+const CODIGO_HOROCRUX_5 = "N@9ini";
 const VALOR_DEF_CORDURA = 200;
 const VALOR_DEF_SALUD = 400;
-const VALOR_AZA_DEF_HOROCRUX=0;
-const VALOR_MINIMO_1=-3;
-const VALOR_MAXMIMO_1=21;
-const VALOR_CODIGO_HORX_DEF_1="def";
-const VALOR_CODIGO_HORX_DEF_2="def";
-const VALOR_MINIMO_2=-100;
-const VALOR_MAXMIMO_2=-70;
-const VALOR_MINIMO_3=4;
-const VALOR_MAXMIMO_3=12;
-const VALOR_CODIGO_HORX_DEF_3="def";
-
+const VALOR_AZA_DEF_HOROCRUX = 0;
+const VALOR_MINIMO_1 = -3;
+const VALOR_MAXMIMO_1 = 21;
+const VALOR_CODIGO_HORX_DEF_1 = "def";
+const VALOR_CODIGO_HORX_DEF_2 = "def";
+const VALOR_MINIMO_2 = -100;
+const VALOR_MAXMIMO_2 = -70;
+const VALOR_MINIMO_3 = 4;
+const VALOR_MAXMIMO_3 = 12;
+const VALOR_CODIGO_HORX_DEF_3 = "def";
+const VALOR_CODIGO_HORX_DEF_4 = "def";
+const VALOR_CODIGO_HORX_DEF_5 = "def";
+const INTENTOS_DESTRUIR_DEF="def";
+const CONTADOR_VALOR_DEF_INI=0;
+const CONTADOR_VALOR_FIN_DEF=30;
+const HOROCRUX_STRING="Horocrux";
 
 
 function main() {
@@ -67,40 +73,133 @@ function main() {
 
     let salud_usuario = VALOR_DEF_SALUD;
     let cordura_de_usuario = VALOR_DEF_CORDURA;
-    let azar_1_horocrux=VALOR_AZA_DEF_HOROCRUX;
-    let horocrux_codigo_final_1=VALOR_CODIGO_HORX_DEF_1;
-    let azar_2_horocrux=VALOR_AZA_DEF_HOROCRUX;
-    let horocrux_codigo_final_2=VALOR_CODIGO_HORX_DEF_2;
-    let azar_3_horocrux=VALOR_AZA_DEF_HOROCRUX;
-    let horocrux_codigo_final_3=VALOR_CODIGO_HORX_DEF_3
-    let azar_4_horocrux=0;
+    let azar_1_horocrux = VALOR_AZA_DEF_HOROCRUX;
+    let horocrux_codigo_final_1 = VALOR_CODIGO_HORX_DEF_1;
+    let horocrux_codigo_final_2 = VALOR_CODIGO_HORX_DEF_2;
+    let horocrux_codigo_final_3 = VALOR_CODIGO_HORX_DEF_3;
+    let horocrux_codigo_final_4 = VALOR_CODIGO_HORX_DEF_4;
+    let horocrux_codigo_final_5 = VALOR_CODIGO_HORX_DEF_5;
+    let azar_2_horocrux = VALOR_AZA_DEF_HOROCRUX;
+    let azar_3_horocrux = VALOR_AZA_DEF_HOROCRUX;
+    let azar_4_horocrux = VALOR_CODIGO_HORX_DEF_4;
+    let azar_5_horocrux = VALOR_CODIGO_HORX_DEF_5;
+    let intento_destruir=INTENTOS_DESTRUIR_DEF;
+    let contador = CONTADOR_VALOR_DEF_INI;
 
-    azar_1_horocrux=Math.round(Math.random()*(VALOR_MINIMO_1-VALOR_MAXMIMO_1)+VALOR_MAXMIMO_1);
-    console.log(azar_1_horocrux);
-    
-    horocrux_codigo_final_1=CODIGO_HOROCRUX_1+azar_1_horocrux;
+
+    azar_1_horocrux = Math.round(Math.random() * (VALOR_MINIMO_1 - VALOR_MAXMIMO_1) + VALOR_MAXMIMO_1);
+    horocrux_codigo_final_1 = CODIGO_HOROCRUX_1 + azar_1_horocrux;
     console.log(horocrux_codigo_final_1);                                 //PRIMER CODIGO TERMINADO
 
 
-    azar_2_horocrux=Math.round(Math.random()*(VALOR_MINIMO_2-VALOR_MAXMIMO_2)+VALOR_MAXMIMO_2)
-console.log(azar_2_horocrux);
+    azar_2_horocrux = Math.round(Math.random() * (VALOR_MINIMO_2 - VALOR_MAXMIMO_2) + VALOR_MAXMIMO_2)
+    horocrux_codigo_final_2 = azar_2_horocrux + CODIGO_HOROCRUX_2
+    console.log(horocrux_codigo_final_2);                                       // SEGUNDO VALOR DE HOROCRUX 
 
 
-horocrux_codigo_final_2=azar_2_horocrux+CODIGO_HOROCRUX_2
-console.log(horocrux_codigo_final_2);                                       // SEGUNDO VALOR DE HOROCRUX 
+    azar_3_horocrux = Math.round(Math.random() * (VALOR_MINIMO_3 - VALOR_MAXMIMO_3) + VALOR_MAXMIMO_3);
+    horocrux_codigo_final_3 = CODIGO_HOROCRUX_1 + azar_3_horocrux;
+    console.log("tercer", CODIGO_HOROCRUX_3_A + azar_3_horocrux + CODIGO_HOROCRUX_3_B);                            // tercer codigo
+
+    
+    
+
+    while (contador < CONTADOR_VALOR_FIN_DEF) {
 
 
-azar_3_horocrux=Math.round(Math.random()*(VALOR_MINIMO_3-VALOR_MAXMIMO_3)+VALOR_MAXMIMO_3);
-console.log(azar_3_horocrux);
-
-horocrux_codigo_final_3=CODIGO_HOROCRUX_1+azar_3_horocrux;
-console.log(horocrux_codigo_final_3);                          
+        azar_4_horocrux = Math.random().toString(36).substring(2, 3)
 
 
+        if (azar_4_horocrux == "a") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+
+
+        } else if (azar_4_horocrux == "b") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+        } else if (azar_4_horocrux == "c") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+        } else if (azar_4_horocrux == "d") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+
+        } else if (azar_4_horocrux == "e") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+        }
+
+
+
+        horocrux_codigo_final_4 = azar_4_horocrux + CODIGO_HOROCRUX_4
+
+
+    } console.log(horocrux_codigo_final_4, "terminado"); // HOROCURX 4 TERMINADO
+
+
+
+    contador = CONTADOR_VALOR_DEF_INI;
+    while (contador < CONTADOR_VALOR_FIN_DEF) {
+
+
+        azar_5_horocrux = Math.random().toString(36).substring(2, 3)
+
+
+        if (azar_5_horocrux == "h") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+        } else if (azar_5_horocrux = "i") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+
+        } else if (azar_5_horocrux == "j") {
+
+            contador = CONTADOR_VALOR_FIN_DEF;
+
+        } else if (azar_5_horocrux = "k") {
+            contador = CONTADOR_VALOR_FIN_DEF;
+        }
+
+        horocrux_codigo_final_5 = CODIGO_HOROCRUX_5 + azar_5_horocrux;
+
+    } console.log("quinto codigo de horocrux", horocrux_codigo_final_5);  //5 terminado de lso hhoroxreux codigo
+
+
+    contador=CONTADOR_VALOR_DEF_INI;
+
+    console.log("Debes ingresar el codigo correcto para el primer",HOROCRUX_STRING);
+do {
+intento_destruir=leer();
+
+if (intento_destruir==horocrux_codigo_final_1) {
+    console.log("bien destruites el primer",HOROCRUX_STRING);
+    
+}
+
+
+
+
+} while (contador<CONTADOR_VALOR_FIN_DEF);
 
 
 
 }
-
-
 main();
+
+
+
+
+//puntos de  cordura 200 y vida 400
+
+//intentos maximo 30
+//en el 1 intento no puede intentar atacar el horocrux 
+//daño recibido en cordura por horcrux  5.7
+// 5 por ciento de quitar toda la salud y cordura cada horocrux antes de cada inte nto
+// 50 por ciento de posbilidad de defenderse de un ataque del horocrux estandpo todos los horcrux en juego ,y debe elegir un daño silo a recibir osea solo puede defender salud o corudar no los dos,
+
+// y por cada horcrux destruido tienne un 2.4 por ciuento mas de posibilidad de quitarle oda la vuida y cordura
+
+//  daño recibido   salud 10.4 por intno fallido
+
+// por cada horocrux destruido esta posibildad disminuye un 11.875 por ciento
+
