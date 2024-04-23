@@ -124,11 +124,11 @@ function main() {
     do {
         prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento);
         azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
-console.log(prob_total,"total porcentaje");
-console.log(azar_prob_daño,"azar prob");
+        console.log(prob_total, "total porcentaje");
+        console.log(azar_prob_daño, "azar prob");
 
 
-console.log("antes de entrar al switch");
+        console.log("antes de entrar al switch");
         if ((contador > 1) && (prob_total <= azar_prob_daño)) {
             salud = 0;
             cordura = 0;
@@ -159,7 +159,7 @@ console.log("antes de entrar al switch");
 
 
         contador = contador + 1;
-        console.log("vuelta",contador);
+        console.log("vuelta", contador);
     } while (contador < LIMITE_INTENTOS);
 
 
