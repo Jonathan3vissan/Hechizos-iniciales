@@ -73,9 +73,6 @@ const VALOR_MAX_AZAR_5 = 75;
 
 
 function main() {
-
-
-
     let salud_usuario = VALOR_DEF_SALUD;
     let cordura_de_usuario = VALOR_DEF_CORDURA;
     let azar_1_horocrux = VALOR_AZA_DEF_HOROCRUX;
@@ -91,13 +88,11 @@ function main() {
     let intento_destruir = INTENTOS_DESTRUIR_DEF;
     let contador = CONTADOR_VALOR_DEF_INI;
 
-
     horocrux_codigo_final_1 = generador_de_codigo(VALOR_MINIMO_1, VALOR_MAXMIMO_1, CODIGO_HOROCRUX_1);
     console.log(horocrux_codigo_final_1);
 
     horocrux_codigo_final_2 = generador_de_codigo(VALOR_MINIMO_2, VALOR_MAXMIMO_2, CODIGO_HOROCRUX_2);
     console.log(horocrux_codigo_final_2);
-
 
     horocrux_codigo_final_3 = generador_de_codigo(VALOR_MINIMO_3, VALOR_MAXMIMO_3, CODIGO_HOROCRUX_3_A,)
     console.log( horocrux_codigo_final_3 + CODIGO_HOROCRUX_3_B)
@@ -110,19 +105,8 @@ function main() {
 
 
 
-
-
-
-
-
-
-
 }
 main();
-
-
-
-
 
 
 function generador_de_codigo(min, max, codigo_horocrux) {
