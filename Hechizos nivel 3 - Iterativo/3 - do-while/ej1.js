@@ -36,6 +36,7 @@ En cada caso agregar el mensaje correspondiente al final de esta simulacion
     - En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.
 */
 
+const HOROCRUX_STRING = "Horocrux";
 const HOROCRUX_1 = " Diario de Tom Riddle";
 const HOROCRUX_2 = "Anillo de Gaunt ";
 const HOROCRUX_3 = "Copa de Helga Hufflepuff";
@@ -49,39 +50,60 @@ const CODIGO_HOROCRUX_4 = "R4vena";
 const CODIGO_HOROCRUX_5 = "N@9ini";
 const VALOR_DEF_CORDURA = 200;
 const VALOR_DEF_SALUD = 400;
-const VALOR_AZA_DEF_HOROCRUX = 0;
 const VALOR_CODIGO_HORX_DEF_1 = "def";
 const VALOR_CODIGO_HORX_DEF_2 = "def";
+const VALOR_CODIGO_HORX_DEF_3 = "def";
+const VALOR_CODIGO_HORX_DEF_4 = "def";
+const VALOR_CODIGO_HORX_DEF_5 = "def";
+const VALOR_MINIMO_1 = -3;
+const VALOR_MAXMIMO_1 = 21;
 const VALOR_MINIMO_2 = -100;
 const VALOR_MAXMIMO_2 = -70;
 const VALOR_MINIMO_3 = 4;
 const VALOR_MAXMIMO_3 = 12;
-const VALOR_CODIGO_HORX_DEF_3 = "def";
-const VALOR_CODIGO_HORX_DEF_4 = "def";
-const VALOR_CODIGO_HORX_DEF_5 = "def";
-const INTENTOS_DESTRUIR_DEF = "def";
-const CONTADOR_VALOR_DEF_INI = 0;
-const CONTADOR_VALOR_FIN_DEF = 30;
-const HOROCRUX_STRING = "Horocrux";
-const VALOR_MINIMO_1 = -3;
-const VALOR_MAXMIMO_1 = 21;
 const VALOR_MIN_AZAR_4 = 97;
 const VALOR_MAX_AZAR_4 = 101;
 const VALOR_MIN_AZAR_5 = 72;
 const VALOR_MAX_AZAR_5 = 75;
-
+const AUMENTO_DEF = 0;
+const CONTADOR_DEF = 0;
+const LIMITE_INTENTOS = 30;
+const LANZA_ATAQUE_DEF = "def";
+const DAÑO_CORDURA = 5.7;
+const DAÑO_SALUD = 10.4;
+const DAÑO_FATAL_DEF = false;
+const AZAR_PROB_DAÑO_DEF = 0;
+const MINI_PROB = 0;
+const MAXI_PROB = 100;
+const PROB_TOTAL_DEF = 0;
+const PROB_BASE_DEF = 5;
+const AUMENTO_X_HOROX = 2.4;
 
 
 function main() {
-    let salud_usuario = VALOR_DEF_SALUD;
-    let cordura_de_usuario = VALOR_DEF_CORDURA;
+    let salud = VALOR_DEF_SALUD;
+    let cordura = VALOR_DEF_CORDURA;
     let horocrux_codigo_final_1 = VALOR_CODIGO_HORX_DEF_1;
     let horocrux_codigo_final_2 = VALOR_CODIGO_HORX_DEF_2;
     let horocrux_codigo_final_3 = VALOR_CODIGO_HORX_DEF_3;
     let horocrux_codigo_final_4 = VALOR_CODIGO_HORX_DEF_4;
     let horocrux_codigo_final_5 = VALOR_CODIGO_HORX_DEF_5;
-    let intento_destruir = INTENTOS_DESTRUIR_DEF;
-    let contador = CONTADOR_VALOR_DEF_INI;
+    let contador = CONTADOR_DEF;
+    let lanza_ataque = LANZA_ATAQUE_DEF;
+    let daño_fatal = DAÑO_FATAL_DEF
+    let azar_prob_daño = AZAR_PROB_DAÑO_DEF;
+    let aumento = AUMENTO_DEF
+    let prob_base = PROB_BASE_DEF;
+    let prob_total = PROB_TOTAL_DEF;
+
+
+
+
+
+
+
+
+
 
     horocrux_codigo_final_1 = generador_de_codigo(VALOR_MINIMO_1, VALOR_MAXMIMO_1, CODIGO_HOROCRUX_1);
     console.log(horocrux_codigo_final_1);
@@ -90,18 +112,96 @@ function main() {
     console.log(horocrux_codigo_final_2);
 
     horocrux_codigo_final_3 = generador_de_codigo(VALOR_MINIMO_3, VALOR_MAXMIMO_3, CODIGO_HOROCRUX_3_A,)
-    console.log( horocrux_codigo_final_3 + CODIGO_HOROCRUX_3_B)
+    console.log(horocrux_codigo_final_3 + CODIGO_HOROCRUX_3_B)
 
-    horocrux_codigo_final_4 = geerado_letras(VALOR_MIN_AZAR_4, VALOR_MAX_AZAR_4)
-    console.log(horocrux_codigo_final_4 + CODIGO_HOROCRUX_4, );
+    horocrux_codigo_final_4 = generado_letras(VALOR_MIN_AZAR_4, VALOR_MAX_AZAR_4)
+    console.log(horocrux_codigo_final_4 + CODIGO_HOROCRUX_4,);
 
-    horocrux_codigo_final_5 = geerado_letras(VALOR_MIN_AZAR_5, VALOR_MAX_AZAR_5)
+    horocrux_codigo_final_5 = generado_letras(VALOR_MIN_AZAR_5, VALOR_MAX_AZAR_5)
     console.log(CODIGO_HOROCRUX_5 + horocrux_codigo_final_5,);
+
+
+    do {
+        prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento);
+        azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
+console.log(prob_total,"total porcentaje");
+console.log(azar_prob_daño,"azar prob");
+
+
+console.log("antes de entrar al switch");
+        if ((contador > 1) && (prob_total <= azar_prob_daño)) {
+            salud = 0;
+            cordura = 0;
+            contador = LIMITE_INTENTOS
+            console.log("oooh fue fatal");
+
+        } else {
+            console.log("intenta destruir el horocrux");
+            lanza_ataque = leer();
+
+        }
+
+
+
+        if (lanza_ataque == horocrux_codigo_final_1) {
+
+            console.log("destruiste el primer", HOROCRUX_STRING);
+            contador = LIMITE_INTENTOS;
+
+        } else if (lanza_ataque != horocrux_codigo_final_1) {
+
+            salud = salud - DAÑO_SALUD
+            cordura = cordura - DAÑO_CORDURA
+            console.log("recibiste daño\n", salud, "\n", cordura);
+
+
+        }
+
+
+        contador = contador + 1;
+        console.log("vuelta",contador);
+    } while (contador < LIMITE_INTENTOS);
+
+
+
+
+    //((salud_usuario==0)||(cordura_de_usuario==0))
+
 
 
 
 }
 main();
+
+
+/**genera el porcentaje final 
+ * 
+ * @param {Number} base                inicio de valor
+ * @param {Number} paso_de_aumento     valor
+ * @param {Number} aumento             por cada de uno en uno
+ * @returns porcentaje final
+ */
+function porcentaje_fatal(base, paso_de_aumento, aumento) {
+    let total = base + (paso_de_aumento * aumento); // ESTE ES PARA CUANDO HAGA EL WHILE DE ATAQUE
+    return (total);
+}
+
+
+
+
+/**genera un numero aleatorio
+ * 
+ * @param {Number} MINI valor
+ * @param {number} MAXI valo
+ * @returns numero aleatorio
+ */
+function numero_aleatorio(MINI, MAXI) {
+
+    let total = Math.round(Math.random() * (MINI - MAXI) + MAXI);
+    return (total);
+}
+
+
 
 
 function generador_de_codigo(min, max, codigo_horocrux) {
@@ -110,25 +210,13 @@ function generador_de_codigo(min, max, codigo_horocrux) {
 }
 
 
-function geerado_letras(min, max,) {
+
+
+function generado_letras(min, max,) {
     let cambio
-    let azar_horocrux = Math.round(Math.random() * (min - max) + max)
-    cambio = String.fromCharCode(azar_horocrux)
+    let azar = Math.round(Math.random() * (min - max) + max)
+    cambio = String.fromCharCode(azar)
     return (cambio)
 
 
 }
-//puntos de  cordura 200 y vida 400
-
-//intentos maximo 30
-//en el 1 intento no puede intentar atacar el horocrux
-//daño recibido en cordura por horcrux  5.7
-// 5 por ciento de quitar toda la salud y cordura cada horocrux antes de cada inte nto
-// 50 por ciento de posbilidad de defenderse de un ataque del horocrux estandpo todos los horcrux en juego ,y debe elegir un daño silo a recibir osea solo puede defender salud o corudar no los dos,
-
-// y por cada horcrux destruido tienne un 2.4 por ciuento mas de posibilidad de quitarle oda la vuida y cordura
-
-//  daño recibido   salud 10.4 por intno fallido
-
-// por cada horocrux destruido esta posibildad disminuye un 11.875 por ciento
-
