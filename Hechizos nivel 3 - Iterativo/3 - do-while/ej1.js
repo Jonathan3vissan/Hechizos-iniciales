@@ -36,12 +36,12 @@ En cada caso agregar el mensaje correspondiente al final de esta simulacion
     - En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.
 */
 
-const HOROCRUX_STRING = "Horocrux";
 const HOROCRUX_1 = " Diario de Tom Riddle";
 const HOROCRUX_2 = "Anillo de Gaunt ";
 const HOROCRUX_3 = "Copa de Helga Hufflepuff";
 const HOROCRUX_4 = "Diadema de Rowena Ravenclaw";
 const HOROCRUX_5 = "Nagini";
+const HOROCRUX_STRING = "Horocrux";
 const CODIGO_HOROCRUX_1 = "R1dd13";
 const CODIGO_HOROCRUX_2 = "G4unt!";
 const CODIGO_HOROCRUX_3_A = "H3l";
@@ -90,17 +90,15 @@ function main() {
     let horocrux_codigo_final_5 = VALOR_CODIGO_HORX_DEF_5;
     let contador = CONTADOR_DEF;
     let lanza_ataque = LANZA_ATAQUE_DEF;
-    let daño_fatal = DAÑO_FATAL_DEF
     let azar_prob_daño = AZAR_PROB_DAÑO_DEF;
     let aumento = AUMENTO_DEF
     let prob_base = PROB_BASE_DEF;
     let prob_total = PROB_TOTAL_DEF;
-
-
-
-
-
-
+    let daño_fatal=DAÑO_FATAL_DEF;
+    
+    
+    
+   
 
 
 
@@ -122,18 +120,21 @@ function main() {
 
 
     do {
-        prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento);
+        console.log("inicia la vuelta");
+       prob_total=porcentaje_fatal(prob_base,AUMENTO_X_HOROX,aumento)
+        console.log("proba fatal",prob_total);
         azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
-        console.log(prob_total, "total porcentaje");
         console.log(azar_prob_daño, "azar prob");
 
 
         console.log("antes de entrar al switch");
-        if ((contador > 1) && (prob_total <= azar_prob_daño)) {
+        if ((contador > 1) && (prob_total > azar_prob_daño)) {
             salud = 0;
             cordura = 0;
             contador = LIMITE_INTENTOS
             console.log("oooh fue fatal");
+            daño_fatal=true;
+           
 
         } else {
             console.log("intenta destruir el horocrux");
@@ -141,18 +142,18 @@ function main() {
 
         }
 
-
+        console.log("salio del primer if");
 
         if (lanza_ataque == horocrux_codigo_final_1) {
 
             console.log("destruiste el primer", HOROCRUX_STRING);
             contador = LIMITE_INTENTOS;
 
-        } else if (lanza_ataque != horocrux_codigo_final_1) {
+        } else if ((lanza_ataque != horocrux_codigo_final_1)&&(!daño_fatal)) {
 
             salud = salud - DAÑO_SALUD
             cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\n", salud, "\n", cordura);
+            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
 
 
         }
@@ -160,7 +161,7 @@ function main() {
 
         contador = contador + 1;
         console.log("vuelta", contador);
-    } while (contador < LIMITE_INTENTOS);
+    } while (contador < LIMITE_INTENTOS) ;
 
 
 
@@ -182,7 +183,7 @@ main();
  * @returns porcentaje final
  */
 function porcentaje_fatal(base, paso_de_aumento, aumento) {
-    let total = base + (paso_de_aumento * aumento); // ESTE ES PARA CUANDO HAGA EL WHILE DE ATAQUE
+    let total = base + (paso_de_aumento * aumento);
     return (total);
 }
 
