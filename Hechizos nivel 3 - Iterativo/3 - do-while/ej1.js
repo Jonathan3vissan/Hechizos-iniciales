@@ -78,7 +78,18 @@ const MAXI_PROB = 100;
 const PROB_TOTAL_DEF = 0;
 const PROB_BASE_DEF = 5;
 const AUMENTO_X_HOROX = 2.4;
-
+const CODIGO_UNIDO_3_DEF = "def";
+const CODIGO_UNIDO_4_DEF = "def";
+const CODIGO_UNIDO_5_DEF = "def";
+const ATAQUE_RECHAZADO_DEF = 0;
+const MIN_AZAR_RECHAZO_DEF = 0;
+const MAX_AZAR_RECHAZO_DEF = 10;
+const PROB_RECHAZ_ATAQUE_DEF = 5;
+const OPCION_SALUD_DEF = false;
+const OPCION_CORDURA_DEF = false;
+const HAY_QUE_ELEGIR_DEF = false;
+const ELIJO_EVITAR_UN_DAÑO_DEF = 0;
+const CONTADOR_LIMITE_2 = 2;
 
 function main() {
     let salud = VALOR_DEF_SALUD;
@@ -94,35 +105,38 @@ function main() {
     let aumento = AUMENTO_DEF
     let prob_base = PROB_BASE_DEF;
     let prob_total = PROB_TOTAL_DEF;
-    let daño_fatal=DAÑO_FATAL_DEF;
-    
-    
-    
-   
-
+    let daño_fatal = DAÑO_FATAL_DEF;
+    let codigo_unido_3 = CODIGO_UNIDO_3_DEF;
+    let codigo_unido_4 = CODIGO_UNIDO_4_DEF
+    let codigo_unido_5 = CODIGO_UNIDO_5_DEF;
+    let ataque_rechazado = ATAQUE_RECHAZADO_DEF;
+    let prob_de_rechazo_ataque = PROB_RECHAZ_ATAQUE_DEF;
+    let opcion_cordura = OPCION_CORDURA_DEF;
+    let opcion_salud = OPCION_SALUD_DEF;
+    let hay_que_elegir = HAY_QUE_ELEGIR_DEF;
+    let elijo_evitar_un_daño = ELIJO_EVITAR_UN_DAÑO_DEF
 
 
 
     horocrux_codigo_final_1 = generador_de_codigo(VALOR_MINIMO_1, VALOR_MAXMIMO_1, CODIGO_HOROCRUX_1);
-    console.log(horocrux_codigo_final_1);
-
     horocrux_codigo_final_2 = generador_de_codigo(VALOR_MINIMO_2, VALOR_MAXMIMO_2, CODIGO_HOROCRUX_2);
-    console.log(horocrux_codigo_final_2);
-
     horocrux_codigo_final_3 = generador_de_codigo(VALOR_MINIMO_3, VALOR_MAXMIMO_3, CODIGO_HOROCRUX_3_A,)
-    console.log(horocrux_codigo_final_3 + CODIGO_HOROCRUX_3_B)
-
+    codigo_unido_3 = horocrux_codigo_final_3 + CODIGO_HOROCRUX_3_B
     horocrux_codigo_final_4 = generado_letras(VALOR_MIN_AZAR_4, VALOR_MAX_AZAR_4)
-    console.log(horocrux_codigo_final_4 + CODIGO_HOROCRUX_4,);
-
+    codigo_unido_4 = horocrux_codigo_final_4 + CODIGO_HOROCRUX_4
     horocrux_codigo_final_5 = generado_letras(VALOR_MIN_AZAR_5, VALOR_MAX_AZAR_5)
-    console.log(CODIGO_HOROCRUX_5 + horocrux_codigo_final_5,);
+    codigo_unido_5 = CODIGO_HOROCRUX_5 + horocrux_codigo_final_5
+
+
+    console.log(horocrux_codigo_final_1);
+    console.log(horocrux_codigo_final_2);
 
 
     do {
+
         console.log("inicia la vuelta");
-       prob_total=porcentaje_fatal(prob_base,AUMENTO_X_HOROX,aumento)
-        console.log("proba fatal",prob_total);
+        prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento)
+        console.log("proba fatal", prob_total);
         azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
         console.log(azar_prob_daño, "azar prob");
 
@@ -133,8 +147,8 @@ function main() {
             cordura = 0;
             contador = LIMITE_INTENTOS
             console.log("oooh fue fatal");
-            daño_fatal=true;
-           
+            daño_fatal = true;
+
 
         } else {
             console.log("intenta destruir el horocrux");
@@ -144,29 +158,59 @@ function main() {
 
         console.log("salio del primer if");
 
-        if (lanza_ataque == horocrux_codigo_final_1) {
+        if ((lanza_ataque == horocrux_codigo_final_1) && (!daño_fatal)) {
 
             console.log("destruiste el primer", HOROCRUX_STRING);
             contador = LIMITE_INTENTOS;
 
-        } else if ((lanza_ataque != horocrux_codigo_final_1)&&(!daño_fatal)) {
+        } else if ((lanza_ataque != horocrux_codigo_final_1) && (!daño_fatal) && (ataque_rechazado > prob_de_rechazo_ataque)) {
 
             salud = salud - DAÑO_SALUD
             cordura = cordura - DAÑO_CORDURA
             console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
 
 
+        } else if ((ataque_rechazado < prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+            hay_que_elegir = true;
+
+        } else {
+
         }
+        ataque_rechazado = numero_aleatorio(MIN_AZAR_RECHAZO_DEF, MAX_AZAR_RECHAZO_DEF)
+        console.log("ataqye rechaz", ataque_rechazado);
+        console.log("proba", prob_de_rechazo_ataque);
+
+        while ((contador < CONTADOR_LIMITE_2) && (hay_que_elegir) && (salud > 0) && (cordura > 0)) {
+            console.log("tenes que elegir entre evitar daño a la cordura o a tu salud tu eliges( 1 para salud y 2 para cordura");
+            elijo_evitar_un_daño = Number(leer());
+
+            if (elijo_evitar_un_daño == 1) {
+                console.log("evitaste el daño a tu salud , recibiste solo el daños a tu cordura");
+                cordura = cordura - DAÑO_CORDURA
+                console.log("salud:\t", salud, "\ncordura:\t", cordura);
+                contador = CONTADOR_LIMITE_2;
+            } else if (elijo_evitar_un_daño == 2) {
+                console.log("evitaste el daño a tu cordura pero recibiste daño  a tu salud");
+                salud = salud - DAÑO_SALUD;
+                console.log("salud:\t", salud, "\ncordura:\t", cordura);
+                contador = CONTADOR_LIMITE_2;
+            } else if ((elijo_evitar_un_daño == 0) || (elijo_evitar_un_daño != Number) || (elijo_evitar_un_daño > 2)) {
+                contador = CONTADOR_DEF;
+            }
+
+
+        } //fin del while de ellecion de salud o cordura
+
 
 
         contador = contador + 1;
         console.log("vuelta", contador);
-    } while (contador < LIMITE_INTENTOS) ;
+    } while (contador < LIMITE_INTENTOS);
 
 
 
 
-    //((salud_usuario==0)||(cordura_de_usuario==0))
+
 
 
 
@@ -201,7 +245,6 @@ function numero_aleatorio(MINI, MAXI) {
     let total = Math.round(Math.random() * (MINI - MAXI) + MAXI);
     return (total);
 }
-
 
 
 
