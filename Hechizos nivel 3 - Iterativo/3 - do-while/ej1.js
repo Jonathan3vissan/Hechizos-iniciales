@@ -35,8 +35,9 @@ En cada caso agregar el mensaje correspondiente al final de esta simulacion
 
     - En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.
 */
-const MENSAJE_VICTORIA="¡Victoria para el estudiante valiente que, con coraje y determinación, ha destruido todos los horrocruxes! Con cada fragmento de alma oscura eliminado, la luz de la esperanza ha brillado más brillante sobre el mundo mágico. ¡Su sacrificio y valentía han salvado a nuestra comunidad de las sombras de la oscuridad, asegurando un futuro lleno de paz y prosperidad para todas las generaciones venideras!";
-const MENSAJE_DERROTA="En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.";
+const MENSAJE_VICTORIA = "¡Victoria para el estudiante valiente que, con coraje y determinación, ha destruido todos los horrocruxes! Con cada fragmento de alma oscura eliminado, la luz de la esperanza ha brillado más brillante sobre el mundo mágico. ¡Su sacrificio y valentía han salvado a nuestra comunidad de las sombras de la oscuridad, asegurando un futuro lleno de paz y prosperidad para todas las generaciones venideras!";
+const MENSAJE_DERROTA = "En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.";
+
 const HOROCRUX_1 = " Diario de Tom Riddle";
 const HOROCRUX_2 = "Anillo de Gaunt ";
 const HOROCRUX_3 = "Copa de Helga Hufflepuff";
@@ -84,11 +85,15 @@ const CODIGO_UNIDO_4_DEF = "def";
 const CODIGO_UNIDO_5_DEF = "def";
 const ATAQUE_RECHAZADO_DEF = 0;
 const MIN_AZAR_RECHAZO_DEF = 0;
-const MAX_AZAR_RECHAZO_DEF = 10;
-const PROB_RECHAZ_ATAQUE_DEF = 5;
+const MAX_AZAR_RECHAZO_DEF = 100;
+const PROB_RECHAZ_ATAQUE_DEF = 50;
 const HAY_QUE_ELEGIR_DEF = false;
 const ELIJO_EVITAR_UN_DAÑO_DEF = 0;
 const CONTADOR_LIMITE_2 = 2;
+const HOROCRUX_ROTOS_DEF = 0;
+const DISMINUYE_PROB_RECHAZO = 11.875
+const TODOS_HOROX_ROTOS = 4;
+
 
 function main() {
     let salud = VALOR_DEF_SALUD;
@@ -108,11 +113,11 @@ function main() {
     let prob_base = PROB_BASE_DEF;
     let prob_total = PROB_TOTAL_DEF;
     let daño_fatal = DAÑO_FATAL_DEF;
-    let rechazadar_ataque =PROB_RECHAZ_ATAQUE_DEF;
-    let prob_de_rechazo_ataque =ATAQUE_RECHAZADO_DEF;
+    let rechazar_ataque = PROB_RECHAZ_ATAQUE_DEF;
+    let prob_de_rechazo_ataque = ATAQUE_RECHAZADO_DEF;
     let hay_que_elegir = HAY_QUE_ELEGIR_DEF;
     let elijo_evitar_un_daño = ELIJO_EVITAR_UN_DAÑO_DEF
-
+    let cantidad_horocrux_rotos = HOROCRUX_ROTOS_DEF;
 
 
     horocrux_codigo_final_1 = generador_de_codigo(VALOR_MINIMO_1, VALOR_MAXMIMO_1, CODIGO_HOROCRUX_1);
@@ -124,18 +129,24 @@ function main() {
     horocrux_codigo_final_5 = generado_letras(VALOR_MIN_AZAR_5, VALOR_MAX_AZAR_5)
     codigo_unido_5 = CODIGO_HOROCRUX_5 + horocrux_codigo_final_5
 
-
+    console.log(rechazar_ataque, "ver con atencio este valor");
     console.log(horocrux_codigo_final_1);
     console.log(horocrux_codigo_final_2);
-
-
+    console.log(codigo_unido_3);
+    console.log(codigo_unido_4);
+    console.log(codigo_unido_5);
     do {
+
+        rechazar_ataque = rechazar_ataque - (DISMINUYE_PROB_RECHAZO * cantidad_horocrux_rotos)
+        console.log(rechazar_ataque);
+
         console.log("inicia la vuelta");
         prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento)
         console.log("proba fatal", prob_total);
         azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
         console.log(azar_prob_daño, "azar prob");
-
+        prob_total = prob_total + (AUMENTO_X_HOROX * cantidad_horocrux_rotos);
+        console.log(prob_total);
         console.log("antes de entrar al switch");
         if ((contador > 1) && (prob_total > azar_prob_daño)) {
             salud = 0;
@@ -149,29 +160,95 @@ function main() {
             lanza_ataque = leer();
         }
 
-        console.log("salio del primer if");
-
         if ((lanza_ataque == horocrux_codigo_final_1) && (!daño_fatal)) {
 
-            console.log("destruiste el primer", HOROCRUX_STRING);
-            contador = LIMITE_INTENTOS;
-
-        } else if ((lanza_ataque != horocrux_codigo_final_1) && (!daño_fatal) && (rechazadar_ataque < prob_de_rechazo_ataque)) {
+            console.log("destruiste el primer", HOROCRUX_STRING, HOROCRUX_1);
+            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
+        } else if ((lanza_ataque != horocrux_codigo_final_1) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
             salud = salud - DAÑO_SALUD
             cordura = cordura - DAÑO_CORDURA
             console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
 
-        } else if ((rechazadar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
             hay_que_elegir = true;
 
         } else {
 
         }
 
-        rechazadar_ataque = numero_aleatorio(MIN_AZAR_RECHAZO_DEF, MAX_AZAR_RECHAZO_DEF)
-        console.log("ataqye rechaz", rechazadar_ataque);
-        console.log("proba", prob_de_rechazo_ataque);
+        if ((lanza_ataque == horocrux_codigo_final_2) && (!daño_fatal)) {
 
+            console.log("destruiste el segundo ", HOROCRUX_STRING, HOROCRUX_2);
+            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
+        } else if ((lanza_ataque != horocrux_codigo_final_2) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
+            salud = salud - DAÑO_SALUD
+            cordura = cordura - DAÑO_CORDURA
+            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+
+        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+            hay_que_elegir = true;
+
+        } else {
+
+        }
+
+
+        if ((lanza_ataque == codigo_unido_3) && (!daño_fatal)) {
+
+            console.log("destruiste el tercer", HOROCRUX_STRING, HOROCRUX_3);
+            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
+        } else if ((lanza_ataque != codigo_unido_3) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
+            salud = salud - DAÑO_SALUD
+            cordura = cordura - DAÑO_CORDURA
+            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+
+        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+            hay_que_elegir = true;
+
+        } else {
+
+        }
+
+        if ((lanza_ataque == codigo_unido_4) && (!daño_fatal)) {
+
+            console.log("destruiste el cuarto", HOROCRUX_STRING, HOROCRUX_4);
+            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
+        } else if ((lanza_ataque != codigo_unido_4) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
+            salud = salud - DAÑO_SALUD
+            cordura = cordura - DAÑO_CORDURA
+            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+
+        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+            hay_que_elegir = true;
+
+        } else {
+
+        }
+
+        if ((lanza_ataque == codigo_unido_5) && (!daño_fatal)) {
+
+            console.log("destruiste el ultimo", HOROCRUX_STRING, HOROCRUX_5);
+            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
+        } else if ((lanza_ataque != codigo_unido_5) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
+            salud = salud - DAÑO_SALUD
+            cordura = cordura - DAÑO_CORDURA
+            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+
+        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
+            hay_que_elegir = true;
+
+        } else {
+
+        }
+
+
+
+
+
+
+
+
+        rechazar_ataque = numero_aleatorio(MIN_AZAR_RECHAZO_DEF, MAX_AZAR_RECHAZO_DEF);
         while ((contador < CONTADOR_LIMITE_2) && (hay_que_elegir) && (salud > 0) && (cordura > 0)) {
             console.log("tenes que elegir entre evitar daño a la cordura o a tu salud tu eliges( 1 para salud y 2 para cordura");
             elijo_evitar_un_daño = Number(leer());
@@ -188,12 +265,19 @@ function main() {
                 contador = CONTADOR_LIMITE_2;
             } else if ((elijo_evitar_un_daño == 0) || (elijo_evitar_un_daño != Number) || (elijo_evitar_un_daño > 2)) {
                 contador = CONTADOR_DEF;
+            } else {
+
             }
-
-
         } //fin del while de ellecion de salud o cordura
 
 
+
+        if (cantidad_horocrux_rotos == TODOS_HOROX_ROTOS) {
+            console.log(MENSAJE_VICTORIA);
+
+        } else if (((salud <= 0) || (cordura <= 0)) && (cantidad_horocrux_rotos < 4)) {
+            console.log(MENSAJE_DERROTA);
+        }
 
         contador = contador + 1;
         console.log("vuelta", contador);
