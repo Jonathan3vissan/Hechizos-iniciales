@@ -1,48 +1,12 @@
 const leer = require("prompt-sync")();
-/*# Ej 1 Destruyendo Horrocruxes
 
-- Te embarcas en una misión para destruir los Horrocruxes, objetos malditos que contienen fragmentos del alma del maligno mago Lord Voldemort. La destrucción de los Horrocruxes es crucial para derrotar a Voldemort y restaurar la paz en el mundo mágico.
-
-- El estudiante debe enfrentarse a la tarea desafiante de encontrar y destruir cada uno de los Horrocruxes, los cuales están escondidos en diferentes lugares y protegidos por hechizos y encantamientos poderosos. Cada Horrocrux tiene su propia forma única de ser destruido, representada por un código secreto generado aleatoriamente.
-
-    1. Diario de Tom Riddle        es "R1dd13?" 
-        - donde ? es un numero generado aleatoriamente entre -3 y 20 
-    1. Anillo de Gaunt             es "?G4unt!" 
-        - donde ? es un numero generado aleatoriamente entre -100 y -70
-    1. Copa de Helga Hufflepuff    es "H3l?ga!" 
-        - donde ? es un numero generado aleatoriamente entre 4 y 12
-    1. Diadema de Rowena Ravenclaw es "?R4vena" z
-        - donde ? es un caracter generado aleatoriamente entre a y e z
-    1. Nagini (serpiente)          es "N@9ini?" zzz
-        - donde ? es un caracter generado aleatoriamente entre H y K z
-
-
-- Cada Horrocrux tiene un 5% de probabilidad de quitar la cordura y salud totalmente antes de cada intento, esta probabilidad aumenta un 2.4% por cada horrocrux destruido, despues de todo son objetos malditos que no cualquier mortal puede destruir facilmente
-El estudiante cuenta con 30 intentos para destruirlos todos, si es que aún sigue en pie y cuerdo
-
-- El estudiante tiene el primer intento donde los horrocruxes no pueden derrotarlo inmediatamente 
-
-- Además de la búsqueda y la resolución de enigmas, el estudiante también debe administrar cuidadosamente sus puntos de cordura 200 y salud 400. Los encuentros con los Horrocruxes y los contraataques de estos objetos malignos pueden afectar negativamente tanto la cordura como la salud del estudiante. Si los puntos de cordura o salud llegan a cero, el estudiante perderá el juego.
-El daño de los Horrocruxes es igual a 5.7 aplicado a la cordura y 10.4 a la salud por cada intento fallido, por ejemplo si se fallan 10 veces el daño recibido en ese momento es 57 a la cordura y 104 a la salud.
-Es posible que el estudiante rechache el daño de los horrocrux en algun momento debido a su voluntad y motivacion, en este caso solo podra rechazar un tipo de daño en especifico y el mismo tendra que indicar si desea proteger la cordura o su salud. La probabilidad de que esto suceda es de un 50% y por cada horrocrux destruido disminuye un 11.875%
-
-- El objetivo final del estudiante es destruir todos los Horrocruxes antes de que su cordura o salud se agoten por completo, lo que resultaría en su derrota. Al destruir todos los Horrocruxes, el estudiante habrá triunfado sobre las fuerzas oscuras y habrá ayudado a derrotar a Voldemort, restaurando la paz en el mundo mágico. 
-En cada caso agregar el mensaje correspondiente al final de esta simulacion
-
-- Mensajes
-    - ¡Victoria para el estudiante valiente que, con coraje y determinación, ha destruido todos los horrocruxes! Con cada fragmento de alma oscura eliminado, la luz de la esperanza ha brillado más brillante sobre el mundo mágico. ¡Su sacrificio y valentía han salvado a nuestra comunidad de las sombras de la oscuridad, asegurando un futuro lleno de paz y prosperidad para todas las generaciones venideras!
-
-
-    - En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.
-*/
 const MENSAJE_VICTORIA = "¡Victoria para el estudiante valiente que, con coraje y determinación, ha destruido todos los horrocruxes! Con cada fragmento de alma oscura eliminado, la luz de la esperanza ha brillado más brillante sobre el mundo mágico. ¡Su sacrificio y valentía han salvado a nuestra comunidad de las sombras de la oscuridad, asegurando un futuro lleno de paz y prosperidad para todas las generaciones venideras!";
 const MENSAJE_DERROTA = "En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria.";
-
 const HOROCRUX_1 = " Diario de Tom Riddle";
 const HOROCRUX_2 = "Anillo de Gaunt ";
 const HOROCRUX_3 = "Copa de Helga Hufflepuff";
 const HOROCRUX_4 = "Diadema de Rowena Ravenclaw";
-const HOROCRUX_5 = "Nagini";
+const HOROCRUX_5 = "Nagini(la serpiente)";
 const HOROCRUX_STRING = "Horocrux";
 const CODIGO_HOROCRUX_1 = "R1dd13";
 const CODIGO_HOROCRUX_2 = "G4unt!";
@@ -92,8 +56,15 @@ const ELIJO_EVITAR_UN_DAÑO_DEF = 0;
 const CONTADOR_LIMITE_2 = 2;
 const HOROCRUX_ROTOS_DEF = 0;
 const DISMINUYE_PROB_RECHAZO = 11.875
-const TODOS_HOROX_ROTOS = 4;
-
+const TODOS_HOROX_ROTOS = true;
+const SOLO_UN_GOLPE_DEF = false;
+const ROMPI_UN_HOROCRUX_DEF = false;
+const HOROCRUX_1_DESTRUIDO_DEF = false;
+const HOROCRUX_2_DESTRUIDO_DEF = false;
+const HOROCRUX_3_DESTRUIDO_DEF = false;
+const HOROCRUX_4_DESTRUIDO_DEF = false;
+const HOROCRUX_5_DESTRUIDO_DEF = false;
+const TOTAL_DE_DESTRUCCION_HOROCRUX_DEF = false;
 
 function main() {
     let salud = VALOR_DEF_SALUD;
@@ -117,7 +88,17 @@ function main() {
     let prob_de_rechazo_ataque = ATAQUE_RECHAZADO_DEF;
     let hay_que_elegir = HAY_QUE_ELEGIR_DEF;
     let elijo_evitar_un_daño = ELIJO_EVITAR_UN_DAÑO_DEF
-    let cantidad_horocrux_rotos = HOROCRUX_ROTOS_DEF;
+    let horocrux_rotos = HOROCRUX_ROTOS_DEF;
+    let solo_un_golpe = SOLO_UN_GOLPE_DEF;
+    let rompi_un_horocrux = ROMPI_UN_HOROCRUX_DEF;
+    let horocrux_1_destruido = HOROCRUX_1_DESTRUIDO_DEF;
+    let horocrux_2_destruido = HOROCRUX_2_DESTRUIDO_DEF;
+    let horocrux_3_destruido = HOROCRUX_3_DESTRUIDO_DEF;
+    let horocrux_4_destruido = HOROCRUX_4_DESTRUIDO_DEF;
+    let horocrux_5_destruido = HOROCRUX_5_DESTRUIDO_DEF;
+    let total_de_destruccion_horcrux = TOTAL_DE_DESTRUCCION_HOROCRUX_DEF;
+
+
 
 
     horocrux_codigo_final_1 = generador_de_codigo(VALOR_MINIMO_1, VALOR_MAXMIMO_1, CODIGO_HOROCRUX_1);
@@ -129,7 +110,6 @@ function main() {
     horocrux_codigo_final_5 = generado_letras(VALOR_MIN_AZAR_5, VALOR_MAX_AZAR_5)
     codigo_unido_5 = CODIGO_HOROCRUX_5 + horocrux_codigo_final_5
 
-    console.log(rechazar_ataque, "ver con atencio este valor");
     console.log(horocrux_codigo_final_1);
     console.log(horocrux_codigo_final_2);
     console.log(codigo_unido_3);
@@ -137,37 +117,40 @@ function main() {
     console.log(codigo_unido_5);
     do {
 
-        rechazar_ataque = rechazar_ataque - (DISMINUYE_PROB_RECHAZO * cantidad_horocrux_rotos)
-        console.log(rechazar_ataque);
+        prob_de_rechazo_ataque = numero_aleatorio(MIN_AZAR_RECHAZO_DEF, MAX_AZAR_RECHAZO_DEF);
 
-        console.log("inicia la vuelta");
-        prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento)
-        console.log("proba fatal", prob_total);
-        azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB)
-        console.log(azar_prob_daño, "azar prob");
-        prob_total = prob_total + (AUMENTO_X_HOROX * cantidad_horocrux_rotos);
-        console.log(prob_total);
-        console.log("antes de entrar al switch");
+        prob_total = porcentaje_fatal(prob_base, AUMENTO_X_HOROX, aumento);
+        azar_prob_daño = numero_aleatorio(MINI_PROB, MAXI_PROB);
+        prob_total = prob_total + (AUMENTO_X_HOROX * horocrux_rotos);
+
+
         if ((contador > 1) && (prob_total > azar_prob_daño)) {
             salud = 0;
             cordura = 0;
-            contador = LIMITE_INTENTOS
-            console.log("oooh fue fatal");
+            contador = LIMITE_INTENTOS;
+            console.log("ESTE FUE UN ATAQUE MORTAL");
             daño_fatal = true;
+            console.log(MENSAJE_DERROTA);
 
         } else {
             console.log("intenta destruir el horocrux");
             lanza_ataque = leer();
         }
 
+
+
         if ((lanza_ataque == horocrux_codigo_final_1) && (!daño_fatal)) {
 
             console.log("destruiste el primer", HOROCRUX_STRING, HOROCRUX_1);
-            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
-        } else if ((lanza_ataque != horocrux_codigo_final_1) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
-            salud = salud - DAÑO_SALUD
-            cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+            horocrux_rotos = horocrux_rotos + 1;
+            rompi_un_horocrux = true;
+            horocrux_1_destruido = true;
+        }
+        else if ((lanza_ataque != horocrux_codigo_final_1) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque) && (!solo_un_golpe) && (horocrux_2_destruido) && (horocrux_3_destruido) && (horocrux_4_destruido) && (horocrux_5_destruido)) {
+            salud = salud - DAÑO_SALUD;
+            cordura = cordura - DAÑO_CORDURA;
+            console.log(" 1 recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+            solo_un_golpe = true;
 
         } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
             hay_que_elegir = true;
@@ -179,31 +162,29 @@ function main() {
         if ((lanza_ataque == horocrux_codigo_final_2) && (!daño_fatal)) {
 
             console.log("destruiste el segundo ", HOROCRUX_STRING, HOROCRUX_2);
-            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
-        } else if ((lanza_ataque != horocrux_codigo_final_2) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
-            salud = salud - DAÑO_SALUD
-            cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
-
-        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
-            hay_que_elegir = true;
-
+            horocrux_rotos = horocrux_rotos + 1;
+            rompi_un_horocrux = true;
+            horocrux_2_destruido = true;
+        } else if ((lanza_ataque != horocrux_codigo_final_2) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque) && (!solo_un_golpe)) {
+            salud = salud - DAÑO_SALUD;
+            cordura = cordura - DAÑO_CORDURA;
+            console.log(" 2 recibiste daño\nsalud:", salud, "\ncordura:", cordura);
+            solo_un_golpe = true;
         } else {
 
         }
 
-
         if ((lanza_ataque == codigo_unido_3) && (!daño_fatal)) {
 
-            console.log("destruiste el tercer", HOROCRUX_STRING, HOROCRUX_3);
-            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
-        } else if ((lanza_ataque != codigo_unido_3) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
-            salud = salud - DAÑO_SALUD
-            cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
-
-        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
-            hay_que_elegir = true;
+            console.log("destruiste el tercer ", HOROCRUX_STRING, HOROCRUX_3);
+            horocrux_rotos = horocrux_rotos + 1;
+            rompi_un_horocrux = true;
+            horocrux_3_destruido = true;
+        } else if ((lanza_ataque != codigo_unido_3) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque) & (!solo_un_golpe)) {
+            salud = salud - DAÑO_SALUD;
+            cordura = cordura - DAÑO_CORDURA;
+            console.log(" 3 recibiste daño\nsalud:", salud, "\ncordura:", cordura);
+            solo_un_golpe = true;
 
         } else {
 
@@ -211,31 +192,33 @@ function main() {
 
         if ((lanza_ataque == codigo_unido_4) && (!daño_fatal)) {
 
-            console.log("destruiste el cuarto", HOROCRUX_STRING, HOROCRUX_4);
-            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
-        } else if ((lanza_ataque != codigo_unido_4) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
-            salud = salud - DAÑO_SALUD
-            cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
+            console.log("destruiste el cuarto ", HOROCRUX_STRING, HOROCRUX_4);
+            horocrux_rotos = horocrux_rotos + 1;
+            rompi_un_horocrux = true;
+            horocrux_4_destruido = true;
+        } else if ((lanza_ataque != codigo_unido_4) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque) & (!solo_un_golpe)) {
+            salud = salud - DAÑO_SALUD;
+            cordura = cordura - DAÑO_CORDURA;
+            console.log(" 4 recibiste daño\nsalud:", salud, "\ncordura:", cordura);
+            solo_un_golpe = true;
 
-        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
-            hay_que_elegir = true;
 
         } else {
 
         }
+
 
         if ((lanza_ataque == codigo_unido_5) && (!daño_fatal)) {
 
-            console.log("destruiste el ultimo", HOROCRUX_STRING, HOROCRUX_5);
-            cantidad_horocrux_rotos = cantidad_horocrux_rotos + 1;
-        } else if ((lanza_ataque != codigo_unido_5) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque)) {
-            salud = salud - DAÑO_SALUD
-            cordura = cordura - DAÑO_CORDURA
-            console.log("recibiste daño\nsalu:", salud, "\ncordura:", cordura);
-
-        } else if ((rechazar_ataque > prob_de_rechazo_ataque) && (salud > 0) && (cordura > 0)) {
-            hay_que_elegir = true;
+            console.log("destruiste el ultimo ", HOROCRUX_STRING, HOROCRUX_5);
+            horocrux_rotos = horocrux_rotos + 1;
+            rompi_un_horocrux = true;
+            horocrux_5_destruido = true;
+        } else if ((lanza_ataque != codigo_unido_5) && (!daño_fatal) && (rechazar_ataque < prob_de_rechazo_ataque) & (!solo_un_golpe)) {
+            salud = salud - DAÑO_SALUD;
+            cordura = cordura - DAÑO_CORDURA;
+            console.log(" 5 recibiste daño\nsalud:", salud, "\ncordura:", cordura);
+            solo_un_golpe = true;
 
         } else {
 
@@ -243,44 +226,50 @@ function main() {
 
 
 
-
-
-
-
-
-        rechazar_ataque = numero_aleatorio(MIN_AZAR_RECHAZO_DEF, MAX_AZAR_RECHAZO_DEF);
-        while ((contador < CONTADOR_LIMITE_2) && (hay_que_elegir) && (salud > 0) && (cordura > 0)) {
+        while ((contador < CONTADOR_LIMITE_2) && (hay_que_elegir) && (salud > 0) && (cordura > 0) && (!rompi_un_horocrux)) {
             console.log("tenes que elegir entre evitar daño a la cordura o a tu salud tu eliges( 1 para salud y 2 para cordura");
             elijo_evitar_un_daño = Number(leer());
 
             if (elijo_evitar_un_daño == 1) {
                 console.log("evitaste el daño a tu salud , recibiste solo el daños a tu cordura");
-                cordura = cordura - DAÑO_CORDURA
+                cordura = cordura - DAÑO_CORDURA;
                 console.log("salud:\t", salud, "\ncordura:\t", cordura);
                 contador = CONTADOR_LIMITE_2;
+
             } else if (elijo_evitar_un_daño == 2) {
-                console.log("evitaste el daño a tu cordura pero recibiste daño  a tu salud");
+                console.log("evitaste el daño a tu cordura pero recibiste daño a tu salud");
                 salud = salud - DAÑO_SALUD;
                 console.log("salud:\t", salud, "\ncordura:\t", cordura);
                 contador = CONTADOR_LIMITE_2;
+
             } else if ((elijo_evitar_un_daño == 0) || (elijo_evitar_un_daño != Number) || (elijo_evitar_un_daño > 2)) {
                 contador = CONTADOR_DEF;
             } else {
 
             }
-        } //fin del while de ellecion de salud o cordura
-
-
-
-        if (cantidad_horocrux_rotos == TODOS_HOROX_ROTOS) {
-            console.log(MENSAJE_VICTORIA);
-
-        } else if (((salud <= 0) || (cordura <= 0)) && (cantidad_horocrux_rotos < 4)) {
-            console.log(MENSAJE_DERROTA);
         }
 
+        total_de_destruccion_horcrux = estan_todos_los_horocrux_rotos(horocrux_1_destruido, horocrux_2_destruido, horocrux_3_destruido, horocrux_4_destruido, horocrux_5_destruido);
+        console.log(total_de_destruccion_horcrux);
+
+
+        if (total_de_destruccion_horcrux == TODOS_HOROX_ROTOS) {
+            console.log(MENSAJE_VICTORIA);
+            contador = LIMITE_INTENTOS;
+            rompi_un_horocrux = true;
+
+        } else if (((salud <= 0) || (cordura <= 0)) && (horocrux_rotos < 5)) {
+            console.log(MENSAJE_DERROTA);
+            contador = LIMITE_INTENTOS;
+        }
+
+
+        if (rompi_un_horocrux) {
+            rechazar_ataque = rechazar_ataque - DISMINUYE_PROB_RECHAZO;
+
+        }
         contador = contador + 1;
-        console.log("vuelta", contador);
+        rompi_un_horocrux = ROMPI_UN_HOROCRUX_DEF;
     } while (contador < LIMITE_INTENTOS);
 
 
@@ -294,6 +283,12 @@ function main() {
 }
 main();
 
+
+function estan_todos_los_horocrux_rotos(destruido1,destruido2,destruido3,destruido4,destruido5) {
+let total
+     total = destruido1 && destruido2 && destruido3 && destruido4 && destruido5;
+    return (total);
+}
 
 /**genera el porcentaje final 
  * 
@@ -340,3 +335,17 @@ function generado_letras(min, max,) {
 
 
 }
+
+/*
+let rechazar_ataque=50;
+let DISMINUYE_PROB_RECHAZO=11.578;
+let cantidad_horocrux_rotos=2;
+console.log("inicia la vuelta");
+        console.log(rechazar_ataque, "ver con atencio este valor");
+        rechazar_ataque = rechazar_ataque - (DISMINUYE_PROB_RECHAZO * cantidad_horocrux_rotos)
+        console.log(rechazar_ataque);
+
+
+        El daño de los Horrocruxes es igual a 5.7 aplicado a la cordura y 10.4 a la salud por cada intento fallido, por ejemplo si se fallan 10 veces el daño recibido en ese momento es 57 a la cordura y 104 a la salud.
+        Es posible que el estudiante rechache el daño de los horrocrux en algun momento debido a su voluntad y motivacion, en este caso solo podra rechazar un tipo de daño en especifico y el mismo tendra que indicar si desea proteger la cordura o su salud. La probabilidad de que esto suceda es de un 50% y por cada horrocrux destruido disminuye un 11.875%
+        */
