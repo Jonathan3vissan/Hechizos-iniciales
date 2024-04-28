@@ -124,7 +124,7 @@ function geerado_letras(min, max,) {
 //en el 1 intento no puede intentar atacar el horocrux
 //daño recibido en cordura por horcrux  5.7
 // 5 por ciento de quitar toda la salud y cordura cada horocrux antes de cada inte nto
-// 50 por ciento de posbilidad de defenderse de un ataque del horocrux estandpo todos los horcrux en juego ,y debe elegir un daño silo a recibir osea solo puede defender salud o corudar no los dos,
+// 50 por ciento de posbilidad de defenderse de un ataque del horocrux estandpo todos los horcrux en juego ,y debe elegir un daño silo a recibir osea solo puede defender salud  o corudar no los dos,
 
 // y por cada horcrux destruido tienne un 2.4 por ciuento mas de posibilidad de quitarle oda la vuida y cordura
 
