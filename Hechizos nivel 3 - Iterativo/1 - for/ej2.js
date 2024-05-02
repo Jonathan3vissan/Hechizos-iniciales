@@ -21,7 +21,7 @@ const leer = require("prompt-sync")();
 const ATAQUE_MAGO = 267;
 const DAÑO_TURNO_PERDIDO_A_MAGO = 75;
 const PATRONUS = "Patronus";
-const VALOR_DEF_STRING = "def";
+const VALOR_DEF_STRING = " def";
 const VALOR_NUM_DEF = 0;
 function main() {
     let vida_estudiante = 350;
