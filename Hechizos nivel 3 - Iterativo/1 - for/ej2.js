@@ -15,7 +15,7 @@ const leer = require("prompt-sync")();
  * Vida maxima del estudiante: 350
  * Daño por turno perdido del dementor al estudiante: 75
  * Daño por hechizo acertado del estudiante contra dementor: 267
- * Turnos totales: 5 
+ * Turnos totales: 5   
  */
 
 const ATAQUE_MAGO = 267;
